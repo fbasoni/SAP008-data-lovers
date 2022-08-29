@@ -12,6 +12,7 @@ function hideModals() {
     document.getElementById('spells-list').style.display = 'none';
     document.getElementById('characters-list').style.display = 'none';
 }
+
 function formatList(arrayObjects) {
     return arrayObjects.map(names => `<ul><li> ${names}</li></ul>`).join('');
 }
