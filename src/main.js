@@ -112,7 +112,6 @@ function displayCharacterCard(event) {
     const cardContent = document.getElementById('card-content-characters')
     const cardTitle = document.getElementById('card-title-characters')
     const clickedName = event.target.innerText
-    dataBaseCharacters
     const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName)
        
     return filterCharacters.map((character) => {
@@ -144,7 +143,6 @@ function displayBookCard(event) {
     const cardContent = document.getElementById('card-content-books');
     const cardTitle = document.getElementById('card-title-books');
     const clickedTitle = event.target.innerText;
-    dataBaseBooks
     const filterBooks = dataBaseBooks.filter((book) => book.title === clickedTitle);
        
     return filterBooks.map((book) => {
@@ -170,7 +168,6 @@ function displaySpellCard(event) {
     const cardContent = document.getElementById('card-content-spells')
     const cardTitle = document.getElementById('card-title-spells')
     const clickedSpell = event.target.innerText;
-    dataBaseSpells
     const filterSpells = dataBaseSpells.filter((spell) => spell.name === clickedSpell);
        
     return filterSpells.map((spell) => {
