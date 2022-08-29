@@ -1,7 +1,11 @@
 export const mainFilters = {
   displayCharactersList, displayBooksList, displaySpellsList,
+<<<<<<< Updated upstream
   filterCharactersByHouses, charactersFromAtoZ, charactersFromZtoA,
   sortBy
+=======
+  filterCharactersByHouses, sortBy, calcPercentage
+>>>>>>> Stashed changes
 };
 
 function charactersFromAtoZ(charactersNames) {
@@ -44,3 +48,19 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
   return filteredCharacters.map((character) => character.name)
 }
 
+<<<<<<< Updated upstream
+=======
+function sortBy(arrObjects, sortByParam) {
+  if (sortByParam == 'asc') {
+    arrObjects = charactersFromAtoZ(arrObjects);
+  }
+  else if (sortByParam == 'desc') {
+    arrObjects = charactersFromZtoA(arrObjects);
+  }
+  return arrObjects
+}
+
+function calcPercentage(lengthFilteredCharacters, lengthAllCharacters) {
+  return Math.round((lengthFilteredCharacters * 100) / lengthAllCharacters);
+}
+>>>>>>> Stashed changes
