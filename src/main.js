@@ -11,10 +11,11 @@ function hideModals() {
     document.getElementById('books-list').style.display = 'none';
     document.getElementById('spells-list').style.display = 'none';
     document.getElementById('characters-list').style.display = 'none';
+    document.getElementById('card-info').style.display = 'none';
 }
 
 function formatList(arrayObjects) {
-    return arrayObjects.map(names => `<ul><li> ${names}</li></ul>`).join('');
+    return arrayObjects.map(names => `<ul><li class="list-elements">${names}</li></ul>`).join('');
 }
 
 function displayCharsResult() {
@@ -101,3 +102,88 @@ btnSpells.addEventListener('click',
         const spellsResult = document.getElementById('spells-content');
         return spellsResult.innerHTML = formatList(spellsNames);
     })
+
+function displayCharacterCard(event) {
+    document.getElementById('characters-list').style.display = 'none';
+    document.getElementById('card-info').style.display = 'block';
+    const cardContent = document.getElementById('card-content')
+    const cardTitle = document.getElementById('card-title')
+    const clickedName = event.target.innerText
+    const charactersNames = data.characters
+    const filterElement = charactersNames.filter((character) => character.name === clickedName)
+       
+    return filterElement.map((character) => {
+    cardTitle.innerHTML = `${character.name}`
+    cardContent.innerHTML = 
+     `
+        <li><em class="card-content-heading">Birth:</em> ${character.birth}</li>
+        <li><em class="card-content-heading">Death:</em> ${character.death}</li>
+        <li><em class="card-content-heading">Species:</em> ${character.species}</li>
+        <li><em class="card-content-heading">Ancestry:</em> ${character.ancestry}</li>
+        <li><em class="card-content-heading">Gender:</em> ${character.gender}</li>
+        <li><em class="card-content-heading">Hair color:</em> ${character.hair_color}</li>
+        <li><em class="card-content-heading">Eye color:</em> ${character.eye_color}</li>
+        <li><em class="card-content-heading">Patronus:</em> ${character.patronus}</li>
+        <li><em class="card-content-heading">House:</em> ${character.house}</li>
+        <li><em class="card-content-heading">Books featured in:</em> ${character.books_featured_in}</li>
+     ` 
+    }) 
+}
+    
+const charactersList = Array.from(document.getElementsByClassName('modal-characters-content')); 
+charactersList.forEach(name => {
+    name.addEventListener('click', displayCharacterCard);
+});
+
+function displayBookCard(event) {
+    document.getElementById('books-list').style.display = 'none';
+    document.getElementById('card-info').style.display = 'block';
+    const cardContent = document.getElementById('card-content')
+    const cardTitle = document.getElementById('card-title')
+    const clickedTitle = event.target.innerText
+    const booksTitles = data.books
+    const filterBook = booksTitles.filter((book) => book.name === clickedTitle)
+       
+    return filterBook.map((book) => {
+    cardTitle.innerHTML = `${book.title}`
+    cardContent.innerHTML = 
+     `
+        <li><em class="card-content-heading">Release Date:</em> ${book.release}</li>
+        <li><em class="card-content-heading">Author:</em> ${book.author}</li>
+        <li><em class="card-content-heading">Description:</em> ${book.description}</li>
+     ` 
+    }) 
+}
+    
+const booksList = Array.from(document.getElementsByClassName('modal-books-content')); 
+booksList.forEach(title => {
+    title.addEventListener('click', displayBookCard);
+});
+
+const returnToCharactersList = document.getElementById('return-btn');
+returnToCharactersList.addEventListener('click', 
+function returnButton(){
+    hideModals()
+    document.getElementById('characters-list').style.display = 'block';
+});
+
+const returnToBooksList = document.getElementById('return-btn');
+returnToBooksList.addEventListener('click', 
+function returnButton(){
+    hideModals()
+    document.getElementById('books-list').style.display = 'block';
+});
+
+const returnToSpellsList = document.getElementById('return-btn');
+returnToSpellsList.addEventListener('click', 
+function returnButton(){
+    hideModals()
+    document.getElementById('spells-list').style.display = 'block';
+});
+
+const pageLogo = document.getElementById('page-logo');
+pageLogo.addEventListener('click',
+function returnToHomepage(){
+    hideModals()
+    document.getElementById('welcome-section').style.display = 'block';
+});
