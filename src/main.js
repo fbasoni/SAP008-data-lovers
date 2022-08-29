@@ -48,7 +48,7 @@ function displayCharactersByHouse(house) {
     const sortBy = document.getElementById('sort').value;
     charactersNames = mainFilters.sortBy(charactersNames, sortBy)
     let percentageOfCharsByHouse = mainFilters.calcPercentage(charactersNames.length, dataBaseCharacters.length);
-    document.getElementById('characters-percentage').innerHTML = `This house represents ${percentageOfCharsByHouse}% of all characters`
+    document.getElementById('characters-percentage').innerHTML = `The characters in ${house} represents ${percentageOfCharsByHouse}% of all characters in Harry Potter Books`
     hideModals();
     document.getElementById('characters-list').style.display = 'block';
     const charactersByHouseResult = document.getElementById('characters-content');

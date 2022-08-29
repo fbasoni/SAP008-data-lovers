@@ -200,6 +200,16 @@ body {
     color: #193833;
 }
 
+.footer-modal {
+    position: relative;
+    margin-top: 2rem;
+    text-align: center;
+    font-family: "Nunito";
+    color: #F7F7F7;
+    font-size: 1.2rem;
+    margin-bottom: 1.1rem;
+}
+
 .sortBy {
     border-radius: 0.40rem;
 }
