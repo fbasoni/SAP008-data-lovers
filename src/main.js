@@ -48,7 +48,7 @@ function displayCharactersByHouse(house) {
     const sortBy = document.getElementById('sort').value;
     charactersNames = mainFilters.sortBy(charactersNames, sortBy)
     let percentageOfCharsByHouse = mainFilters.calcPercentage(charactersNames.length, dataBaseCharacters.length);
-    console.log(percentageOfCharsByHouse)
+    document.getElementById('characters-percentage').innerHTML = `This house represents ${percentageOfCharsByHouse}% of all characters`
     hideModals();
     document.getElementById('characters-list').style.display = 'block';
     const charactersByHouseResult = document.getElementById('characters-content');
