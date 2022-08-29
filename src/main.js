@@ -12,6 +12,7 @@ function hideModals() {
     document.getElementById('spells-list').style.display = 'none';
     document.getElementById('characters-list').style.display = 'none';
 }
+
 function formatList(arrayObjects) {
     return arrayObjects.map(names => `<ul><li> ${names}</li></ul>`).join('');
 }
@@ -43,8 +44,6 @@ function displayCharactersByHouse(house) {
     charactersNames = mainFilters.sortBy(charactersNames, sortBy)
     hideModals()
     document.getElementById('characters-list').style.display = 'block';
-    document.getElementById('header-modal-characters').innerText = 'Characters list by house'
-
     const charactersByHouseResult = document.getElementById('characters-content');
     return charactersByHouseResult.innerHTML = formatList(charactersNames);
 }
@@ -53,6 +52,7 @@ const btnGryffindor = document.getElementById('btn-gryffindor')
 btnGryffindor.addEventListener('click',
     function displayGryffindorCharacters() {
         const house = 'Gryffindor'
+        document.getElementById('header-modal-characters').innerText = 'Characters from house Gryffindor'
         displayCharactersByHouse(house)
     })
 
@@ -60,6 +60,7 @@ const btnSlytherin = document.getElementById('btn-slytherin')
 btnSlytherin.addEventListener('click',
     function displaySlytherinCharacters() {
         const house = 'Slytherin'
+        document.getElementById('header-modal-characters').innerText = 'Characters from house Slytherin'
         displayCharactersByHouse(house)
     })
 
@@ -67,6 +68,7 @@ const btnHufflepuff = document.getElementById('btn-hufflepuff')
 btnHufflepuff.addEventListener('click',
     function displayHufflePuffCharacters() {
         const house = 'Hufflepuff'
+        document.getElementById('header-modal-characters').innerText = 'Characters from house Hufflepuff'
         displayCharactersByHouse(house)
     })
 
@@ -74,6 +76,7 @@ const btnRavenclaw = document.getElementById('btn-ravenclaw')
 btnRavenclaw.addEventListener('click',
     function displayRavenclawCharacters() {
         const house = 'Ravenclaw'
+        document.getElementById('header-modal-characters').innerText = 'Characters from house Ravenclaw'
         displayCharactersByHouse(house)
     })
 
