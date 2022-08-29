@@ -6,15 +6,19 @@ const dataBaseBooks = data.books;
 const dataBaseSpells = data.spells;
 let charactersNames;
 
+
 function hideModals() {
     document.getElementById('welcome-section').style.display = 'none';
     document.getElementById('books-list').style.display = 'none';
     document.getElementById('spells-list').style.display = 'none';
     document.getElementById('characters-list').style.display = 'none';
+    document.getElementById('card-info-characters').style.display = 'none';
+    document.getElementById('card-info-books').style.display = 'none';
+    document.getElementById('card-info-spells').style.display = 'none';
 }
 
 function formatList(arrayObjects) {
-    return arrayObjects.map(names => `<ul><li> ${names}</li></ul>`).join('');
+    return arrayObjects.map(names => `<ul><li class="list-elements">${names}</li></ul>`).join('');
 }
 
 function displayCharsResult() {
@@ -101,3 +105,115 @@ btnSpells.addEventListener('click',
         const spellsResult = document.getElementById('spells-content');
         return spellsResult.innerHTML = formatList(spellsNames);
     })
+
+function displayCharacterCard(event) {
+    document.getElementById('characters-list').style.display = 'none';
+    document.getElementById('card-info-characters').style.display = 'block';
+    const cardContent = document.getElementById('card-content-characters')
+    const cardTitle = document.getElementById('card-title-characters')
+    const clickedName = event.target.innerText
+    dataBaseCharacters
+    const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName)
+       
+    return filterCharacters.map((character) => {
+    cardTitle.innerHTML = `${character.name}`
+    cardContent.innerHTML = 
+     `
+        <li><em class="card-content-heading">Birth:</em> ${character.birth}</li>
+        <li><em class="card-content-heading">Death:</em> ${character.death}</li>
+        <li><em class="card-content-heading">Species:</em> ${character.species}</li>
+        <li><em class="card-content-heading">Ancestry:</em> ${character.ancestry}</li>
+        <li><em class="card-content-heading">Gender:</em> ${character.gender}</li>
+        <li><em class="card-content-heading">Hair color:</em> ${character.hair_color}</li>
+        <li><em class="card-content-heading">Eye color:</em> ${character.eye_color}</li>
+        <li><em class="card-content-heading">Patronus:</em> ${character.patronus}</li>
+        <li><em class="card-content-heading">House:</em> ${character.house}</li>
+        <li><em class="card-content-heading">Books featured in:</em> ${character.books_featured_in}</li>
+     ` 
+    }) 
+}
+    
+const charactersList = Array.from(document.getElementsByClassName('modal-characters-content')); 
+charactersList.forEach(name => {
+    name.addEventListener('click', displayCharacterCard);
+});
+
+function displayBookCard(event) {
+    document.getElementById('books-list').style.display = 'none';
+    document.getElementById('card-info-books').style.display = 'block';
+    const cardContent = document.getElementById('card-content-books');
+    const cardTitle = document.getElementById('card-title-books');
+    const clickedTitle = event.target.innerText;
+    dataBaseBooks
+    const filterBooks = dataBaseBooks.filter((book) => book.title === clickedTitle);
+       
+    return filterBooks.map((book) => {
+    cardTitle.innerHTML = `${book.title}`
+    cardContent.innerHTML = 
+     `
+        <li><em class="card-content-heading">Release Date:</em> ${book.release}</li>
+        <li><em class="card-content-heading">Author:</em> ${book.author}</li>
+        <li><em class="card-content-heading">Description:</em> ${book.description}</li>
+     ` 
+    }); 
+}
+    
+const booksList = Array.from(document.getElementsByClassName('modal-books-content')); 
+booksList.forEach(title => {
+    title.addEventListener('click', displayBookCard);
+});
+
+
+function displaySpellCard(event) {
+    document.getElementById('spells-list').style.display = 'none';
+    document.getElementById('card-info-spells').style.display = 'block';
+    const cardContent = document.getElementById('card-content-spells')
+    const cardTitle = document.getElementById('card-title-spells')
+    const clickedSpell = event.target.innerText;
+    dataBaseSpells
+    const filterSpells = dataBaseSpells.filter((spell) => spell.name === clickedSpell);
+       
+    return filterSpells.map((spell) => {
+    cardTitle.innerHTML = `${spell.name}`
+    cardContent.innerHTML = 
+     `
+        <li><em class="card-content-heading">Pronunciation:</em> ${spell.pronunciation}</li>
+        <li><em class="card-content-heading">Type:</em> ${spell.spell_type}</li>
+        <li><em class="card-content-heading">Description:</em> ${spell.description}</li>
+        <li><em class="card-content-heading">Mention:</em> ${spell.mention}</li>
+     ` 
+    }); 
+}
+    
+const spellsList = Array.from(document.getElementsByClassName('modal-spells-content')); 
+spellsList.forEach(name => {
+    name.addEventListener('click', displaySpellCard);
+});
+
+const returnToCharactersList = document.getElementById('return-btn-characters');
+returnToCharactersList.addEventListener('click', 
+function returnButtonCharacter(){
+    hideModals()
+    document.getElementById('characters-list').style.display = 'block';
+});
+
+const returnToBooksList = document.getElementById('return-btn-books');
+returnToBooksList.addEventListener('click', 
+function returnButtonBook(){
+    hideModals()
+    document.getElementById('books-list').style.display = 'block';
+});
+
+const returnToSpellsList = document.getElementById('return-btn-spells');
+returnToSpellsList.addEventListener('click', 
+function returnButtonSpell(){
+    hideModals()
+    document.getElementById('spells-list').style.display = 'block';
+});
+
+const pageLogo = document.getElementById('page-logo');
+pageLogo.addEventListener('click',
+function returnToHomepage(){
+    hideModals()
+    document.getElementById('welcome-section').style.display = 'block';
+});

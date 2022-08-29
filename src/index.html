@@ -14,12 +14,10 @@
 
 <body style="font-size:10px">
   <header class="header">
-    <img src="Images/Logo.svg" class="page-logo" width="270" height="130">
+    <img src="Images/Logo.svg" id="page-logo" class="page-logo" width="270" height="130">
     <button type="submit" id="btn-characters" class="menu-btns">Characters</button>
     <button type="submit" id="btn-books" class="menu-btns">Books</button>
     <button type="submit" id="btn-spells" class="menu-btns">Spells</button>
-    <!-- <input type="text" id="search-box" placeholder="Pesquisar..." class="search-bar">
-    <button type="submit" id="search-btn" class="search-icon"><i class="fa fa-search"></i></button> -->
   </header>
 
   <main class="main-container">
@@ -45,20 +43,37 @@
         <button type="submit" id="btn-hufflepuff" class="modal-btn">Hufflepuff</button>
         <button type="submit" id="btn-ravenclaw" class="modal-btn">Ravenclaw</button>
       </div>
-      <div id="characters-content" class="modal-content">
+      <div id="characters-content" class="modal-characters-content">
       </div>
     </section>
 
     <section id="books-list" class="modal-list" style="display:none">
       <h1 class="modal-header">Books list</h1>
-      <div id="books-content" class="modal-content"></div>
+      <div id="books-content" class="modal-books-content"></div>
     </section>
 
     <section id="spells-list" class="modal-list" style="display:none">
       <h1 class="modal-header">Spells list</h1>
-      <div id="spells-content" class="modal-content"></div>
+      <div id="spells-content" class="modal-spells-content"></div>
     </section>
 
+    <section id="card-info-characters" class="modal-card" style="display:none">
+      <h1 id="card-title-characters" class="card-title"></h1>
+      <div id="card-content-characters" class="card-content"></div>
+      <button type="submit" id="return-btn-characters" class="return-btn">Return</button>
+    </section>
+
+    <section id="card-info-books" class="modal-card" style="display:none">
+      <h1 id="card-title-books" class="card-title"></h1>
+      <div id="card-content-books" class="card-content"></div>
+      <button type="submit" id="return-btn-books" class="return-btn">Return</button>
+    </section>
+
+    <section id="card-info-spells" class="modal-card" style="display:none">
+      <h1 id="card-title-spells" class="card-title"></h1>
+      <div id="card-content-spells" class="card-content"></div>
+      <button type="submit" id="return-btn-spells" class="return-btn">Return</button>
+    </section>
   </main>
 
   <footer class="footer">
