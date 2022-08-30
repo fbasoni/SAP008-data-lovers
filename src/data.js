@@ -17,11 +17,11 @@ function displayCharactersList(names) {
 }
 
 function displayBooksList(books) {
-  return books.map((book) => book.title)
+  return books.map((book) => book.title);
 }
 
 function displaySpellsList(spells) {
-  return spells.map((spell) => spell.name)
+  return spells.map((spell) => spell.name);
 }
 
 function filterCharactersByHouses(characters, houseToFilterBy) {
@@ -47,6 +47,8 @@ function calcPercentage(lengthFilteredCharacters, lengthAllCharacters) {
   if (lengthFilteredCharacters < 0) {
     throw TypeError("Can't receive a negative number");
   }
-  if (lengthAllCharacters == 0) throw TypeError("Can't divide by zero")
+  if (lengthAllCharacters == 0) {
+    throw TypeError("Can't divide by zero");
+  }
   return Math.round((lengthFilteredCharacters * 100) / lengthAllCharacters);
 }

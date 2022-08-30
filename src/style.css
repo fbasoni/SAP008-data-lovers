@@ -206,8 +206,16 @@ body {
     text-align: center;
     font-family: "Nunito";
     color: #F7F7F7;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1.1rem;
+    padding: 0.1rem;
+    margin-inline: 2rem;
+}
+
+.house-name {
+    font-weight: bold;
+    color: #DC9E00;
+    font-style: italic;
 }
 
 .sortBy {
@@ -437,6 +445,14 @@ body {
         position: relative;
         margin-left: 7.8rem;
         margin-top: 1.3rem;
+    }
+
+    .footer-modal {
+        padding: 0.1rem;
+        margin-inline: 2rem;
+        margin-top: 0.9rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
     }
     
 }
