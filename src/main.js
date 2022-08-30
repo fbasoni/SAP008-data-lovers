@@ -15,6 +15,7 @@ function hideModals() {
     document.getElementById('card-info-characters').style.display = 'none';
     document.getElementById('card-info-books').style.display = 'none';
     document.getElementById('card-info-spells').style.display = 'none';
+    document.getElementById('characters-percentage').style.display = 'none';
 }
 
 function formatList(arrayObjects) {
@@ -51,6 +52,7 @@ function displayCharactersByHouse(house) {
     document.getElementById('characters-percentage').innerHTML = `The characters in <em class="house-name">${house}</em> represent ${percentageOfCharsByHouse}% of all characters in the Harry Potter Books`
     hideModals();
     document.getElementById('characters-list').style.display = 'block';
+    document.getElementById('characters-percentage').style.display = 'block';
     const charactersByHouseResult = document.getElementById('characters-content');
     return charactersByHouseResult.innerHTML = formatList(charactersNames);
 }
@@ -109,12 +111,12 @@ btnSpells.addEventListener('click',
         return spellsResult.innerHTML = formatList(spellsNames);
     })
 
-function displayCharacterCard(characterListed) {
+function displayCharacterCard(listedCharacter) {
     document.getElementById('characters-list').style.display = 'none';
     document.getElementById('card-info-characters').style.display = 'block';
     const cardContent = document.getElementById('card-content-characters');
     const cardTitle = document.getElementById('card-title-characters');
-    const clickedName = characterListed.target.innerText;
+    const clickedName = listedCharacter.target.innerText;
     const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName);
            
     return filterCharacters.map((character) => {
@@ -147,16 +149,16 @@ function displayCharacterCard(characterListed) {
 }
     
 const charactersList = Array.from(document.getElementsByClassName('modal-characters-content')); 
-charactersList.forEach(name => {
-    name.addEventListener('click', displayCharacterCard);
+charactersList.forEach(characterName => {
+    characterName.addEventListener('click', displayCharacterCard);
 });
 
-function displayBookCard(event) {
+function displayBookCard(listedBook) {
     document.getElementById('books-list').style.display = 'none';
     document.getElementById('card-info-books').style.display = 'block';
     const cardContent = document.getElementById('card-content-books');
     const cardTitle = document.getElementById('card-title-books');
-    const clickedTitle = event.target.innerText;
+    const clickedTitle = listedBook.target.innerText;
     const filterBooks = dataBaseBooks.filter((book) => book.title === clickedTitle);
        
     return filterBooks.map((book) => {
@@ -171,16 +173,16 @@ function displayBookCard(event) {
 }
     
 const booksList = Array.from(document.getElementsByClassName('modal-books-content')); 
-booksList.forEach(title => {
-    title.addEventListener('click', displayBookCard);
+booksList.forEach(bookTitle => {
+    bookTitle.addEventListener('click', displayBookCard);
 });
 
-function displaySpellCard(event) {
+function displaySpellCard(listedSpell) {
     document.getElementById('spells-list').style.display = 'none';
     document.getElementById('card-info-spells').style.display = 'block';
     const cardContent = document.getElementById('card-content-spells')
     const cardTitle = document.getElementById('card-title-spells')
-    const clickedSpell = event.target.innerText;
+    const clickedSpell = listedSpell.target.innerText;
     const filterSpells = dataBaseSpells.filter((spell) => spell.name === clickedSpell);
        
     return filterSpells.map((spell) => {
@@ -196,8 +198,8 @@ function displaySpellCard(event) {
 }
 
 const spellsList = Array.from(document.getElementsByClassName('modal-spells-content')); 
-spellsList.forEach(name => {
-    name.addEventListener('click', displaySpellCard);
+spellsList.forEach(spellName => {
+    spellName.addEventListener('click', displaySpellCard);
 });
 
 const returnToCharactersList = document.getElementById('return-btn-characters');
