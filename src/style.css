@@ -269,6 +269,12 @@ body {
     padding-bottom: 0.1rem;
 }
 
+.card-line {
+    text-align: justify;
+    margin-bottom: 1rem;
+    margin-right: 1.8rem;
+}
+
 .return-btn {
     background-color: #0b1c19;
     color: white;
@@ -457,6 +463,13 @@ body {
         margin-inline: 2rem;
         margin-top: 0.9rem;
         font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-line {
+        text-align:justify;
+        margin-left: -0.9rem;
+        margin-right: 1rem;
         margin-bottom: 0.5rem;
     }
     

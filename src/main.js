@@ -120,31 +120,31 @@ function displayCharacterCard(listedCharacter) {
     const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName);
            
     return filterCharacters.map((character) => {
-    if (character.birth == null) character.birth = 'Unknown'
-    if (character.death == null) character.death = 'Unknown'
-    if (character.species == null) character.species = 'Unknown'
-    if (character.ancestry == null) character.ancestry = 'Unknown'
-    if (character.gender == null) character.gender = 'Unknown'
-    if (character.hair_color == null) character.hair_color = 'Unknown'
-    if (character.eye_color == null) character.eye_color = 'Unknown'
-    if (character.patronus == null) character.patronus = 'Unknown'
-    if (character.house == null) character.house = 'Unknown'
-    if (character.books_featured_in == null) character.books_featured_in = 'Unknown'
+        if (character.birth == null) character.birth = 'Unknown'
+        if (character.death == null) character.death = 'Unknown'
+        if (character.species == null) character.species = 'Unknown'
+        if (character.ancestry == null) character.ancestry = 'Unknown'
+        if (character.gender == null) character.gender = 'Unknown'
+        if (character.hair_color == null) character.hair_color = 'Unknown'
+        if (character.eye_color == null) character.eye_color = 'Unknown'
+        if (character.patronus == null) character.patronus = 'Unknown'
+        if (character.house == null) character.house = 'Unknown'
+        if (character.books_featured_in == null) character.books_featured_in = 'Unknown'
 
-    cardTitle.innerHTML = `${character.name}`
-    cardContent.innerHTML = 
-     `
-        <li><em class="card-content-heading">Birth:</em> ${character.birth}</li>
-        <li><em class="card-content-heading">Death:</em> ${character.death}</li>
-        <li><em class="card-content-heading">Species:</em> ${character.species}</li>
-        <li><em class="card-content-heading">Ancestry:</em> ${character.ancestry}</li>
-        <li><em class="card-content-heading">Gender:</em> ${character.gender}</li>
-        <li><em class="card-content-heading">Hair color:</em> ${character.hair_color}</li>
-        <li><em class="card-content-heading">Eye color:</em> ${character.eye_color}</li>
-        <li><em class="card-content-heading">Patronus:</em> ${character.patronus}</li>
-        <li><em class="card-content-heading">House:</em> ${character.house}</li>
-        <li><em class="card-content-heading">Books featured in:</em> ${character.books_featured_in}</li>
-     ` 
+        cardTitle.innerHTML = `${character.name}`
+        cardContent.innerHTML = 
+            `
+            <li class="card-line"><em class="card-content-heading">Birth:</em> ${character.birth}</li>
+            <li class="card-line"><em class="card-content-heading">Death:</em> ${character.death}</li>
+            <li class="card-line"><em class="card-content-heading">Species:</em> ${character.species}</li>
+            <li class="card-line"><em class="card-content-heading">Ancestry:</em> ${character.ancestry}</li>
+            <li class="card-line"><em class="card-content-heading">Gender:</em> ${character.gender}</li>
+            <li class="card-line"><em class="card-content-heading">Hair color:</em> ${character.hair_color}</li>
+            <li class="card-line"><em class="card-content-heading">Eye color:</em> ${character.eye_color}</li>
+            <li class="card-line"><em class="card-content-heading">Patronus:</em> ${character.patronus}</li>
+            <li class="card-line"><em class="card-content-heading">House:</em> ${character.house}</li>
+            <li class="card-line"><em class="card-content-heading">Books featured in:</em> ${character.books_featured_in}</li>
+            ` 
     }) 
 }
     
@@ -162,13 +162,16 @@ function displayBookCard(listedBook) {
     const filterBooks = dataBaseBooks.filter((book) => book.title === clickedTitle);
        
     return filterBooks.map((book) => {
-    cardTitle.innerHTML = `${book.title}`
-    cardContent.innerHTML = 
-     `
-        <li><em class="card-content-heading">Release Date:</em> ${book.release}</li>
-        <li><em class="card-content-heading">Author:</em> ${book.author}</li>
-        <li><em class="card-content-heading">Description:</em> ${book.description}</li>
-     ` 
+        if (book.releaseDay == null) book.releaseDay = 'Unknown'
+        if (book.author == null) book.author = 'Unknown'
+        if (book.description == null) book.description = 'Unknown'
+        cardTitle.innerHTML = `${book.title}`
+        cardContent.innerHTML = 
+            `
+            <li class="card-line"><em class="card-content-heading">Release Date:</em> ${book.releaseDay}</li>
+            <li class="card-line"><em class="card-content-heading">Author:</em> ${book.author}</li>
+            <li class="card-line"><em class="card-content-heading">Description:</em> ${book.description}</li>
+            ` 
     }); 
 }
     
@@ -186,14 +189,18 @@ function displaySpellCard(listedSpell) {
     const filterSpells = dataBaseSpells.filter((spell) => spell.name === clickedSpell);
        
     return filterSpells.map((spell) => {
-    cardTitle.innerHTML = `${spell.name}`
-    cardContent.innerHTML = 
-     `
-        <li><em class="card-content-heading">Pronunciation:</em> ${spell.pronunciation}</li>
-        <li><em class="card-content-heading">Type:</em> ${spell.spell_type}</li>
-        <li><em class="card-content-heading">Description:</em> ${spell.description}</li>
-        <li><em class="card-content-heading">Mention:</em> ${spell.mention}</li>
-     ` 
+        if (spell.pronunciation == null) spell.pronunciation = 'Unknown'
+        if (spell.spell_type == null) spell.spell_type = 'Unknown'
+        if (spell.description == null) spell.description = 'Unknown'
+        if (spell.mention == null) spell.mention = 'Unknown'
+        cardTitle.innerHTML = `${spell.name}`
+        cardContent.innerHTML = 
+            `
+            <li class="card-line"><em class="card-content-heading">Pronunciation:</em> ${spell.pronunciation}</li>
+            <li class="card-line"><em class="card-content-heading">Type:</em> ${spell.spell_type}</li>
+            <li class="card-line"><em class="card-content-heading">Description:</em> ${spell.description}</li>
+            <li class="card-line"><em class="card-content-heading">Mention:</em> ${spell.mention}</li>
+            ` 
     }); 
 }
 
