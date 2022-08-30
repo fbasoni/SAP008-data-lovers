@@ -27,6 +27,7 @@ function displayCharsResult() {
     charactersNames = mainFilters.sortBy(charactersNames, sortBy);
     hideModals();
     document.getElementById('characters-list').style.display = 'block';
+    document.getElementById('header-modal-characters').innerText = 'Characters list';
     const charactersResult = document.getElementById('characters-content');
     return charactersResult.innerHTML = formatList(charactersNames);
 }
@@ -46,7 +47,9 @@ function displayCharactersByHouse(house) {
     charactersNames = mainFilters.filterCharactersByHouses(dataBaseCharacters, house)
     const sortBy = document.getElementById('sort').value;
     charactersNames = mainFilters.sortBy(charactersNames, sortBy)
-    hideModals()
+    let percentageOfCharsByHouse = mainFilters.calcPercentage(charactersNames.length, dataBaseCharacters.length);
+    document.getElementById('characters-percentage').innerHTML = `The characters in ${house} represents ${percentageOfCharsByHouse}% of all characters in Harry Potter Books`
+    hideModals();
     document.getElementById('characters-list').style.display = 'block';
     const charactersByHouseResult = document.getElementById('characters-content');
     return charactersByHouseResult.innerHTML = formatList(charactersNames);

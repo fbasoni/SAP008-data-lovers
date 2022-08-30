@@ -107,6 +107,19 @@ describe('mainFilters.sortBy', () => {
   });
 });
 
+describe('mainFilters.calcPercentage', () => {
+  it('should be a function', () => {
+    expect(typeof mainFilters.calcPercentage).toBe('function')
+  });
 
+it ('should return 30%', () => {
+  expect(mainFilters.calcPercentage(30, 100)).toBe(30)
+});
 
-
+it ('should throw Error when receive a negative number', () => {
+  expect(() => mainFilters.calcPercentage(-30, 100)).toThrow(TypeError);
+});
+it ('should throw Error when receive zero as divisor', () => {
+  expect(() => mainFilters.calcPercentage(30, 0)).toThrow(TypeError);
+});
+});
