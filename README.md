@@ -63,6 +63,8 @@ Com base nas histórias de usuários que obtivemos, os maiores interesses de nos
 
 Para sanar essas demandas o funcionamento da página acontece a partir de três filtros principais: o de "Personagens", o de "Livros" e o de "Feitiços", todos exibidos em botões na página inicial da aplicação. Ao clicar em um dos botões desejados, o usuário será direcionado a uma página com uma lista de exibição para cada um dos filtros que selecionamos; a partir desta lista, o usuário poderá escolher qual informação deseja acessar através de links de direcionamento em cada um dos elementos da lista, os quais o direcionará para uma página com display de um card com dados detalhados a respeito do conteúdo escolhido pelo usuário.  
 
+A príncipio iríamos incluir uma barra de pesquisa onde o usuário pudesse pesquisar qualquer termo em toda a base de dados. Embora fosse uma feature de alto valor para o usuário, não era um item obrigatório do projeto e era uma task de alta dificuldade entre as outras tasks opcionais. Optamos por priorizar a implementação de features obrigatórias e tirar a barra de pesquisa das features a serem incluídas.
+
 Os seguintes dados estarão disponibilizados dentro de cada filtro/seção, como pode ser observado abaixo:
    1. _"Personagens"_ 
    Nesta seção, o usuário poderá acessar dados detalhados sobre cada um personagem, tais quais: data de nascimento; data da morte; espécie; ancestralidade; gênero; cor do cabelo; cor dos olhos; tipo de varinha mágica; patrono; casa de Hogwarts a qual pertence; grupos associados; em quais livros aparece.
@@ -71,6 +73,7 @@ Os seguintes dados estarão disponibilizados dentro de cada filtro/seção, como
    3. _"Feitiços"_ 
    Nesta seção, o usuário poderá acessar dados detalhados sobre cada um dos feitiços utilizados na saga, tais como: nome; variação de nome; pronúncia; descrição; menção; etimologia; notas.
 
+   
 ### 7. Testes unitários
 Optamos por criar testes unitários para todas as funções de data.js, implementando os testes juntamente com as funções para corrigir possíveis bugs. Os testes unitários realizados neste projeto tem 100% de cobertura, inclusas as categorias: statements, functions e lines. 
 
