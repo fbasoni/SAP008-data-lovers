@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Harry Potter';
+    src: url('./fonts/HARRYP__.TTF') format('truetype');
+  }
+
 body {
     width: 100vw;
     height: 100vh;
