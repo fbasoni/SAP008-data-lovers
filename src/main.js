@@ -112,12 +112,23 @@ btnSpells.addEventListener('click',
 function displayCharacterCard(event) {
     document.getElementById('characters-list').style.display = 'none';
     document.getElementById('card-info-characters').style.display = 'block';
-    const cardContent = document.getElementById('card-content-characters')
-    const cardTitle = document.getElementById('card-title-characters')
-    const clickedName = event.target.innerText
-    const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName)
-       
+    const cardContent = document.getElementById('card-content-characters');
+    const cardTitle = document.getElementById('card-title-characters');
+    const clickedName = event.target.innerText;
+    const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName);
+           
     return filterCharacters.map((character) => {
+    if (character.birth == null) character.birth = 'Unknown'
+    if (character.death == null) character.death = 'Unknown'
+    if (character.species == null) character.species = 'Unknown'
+    if (character.ancestry == null) character.ancestry = 'Unknown'
+    if (character.gender == null) character.gender = 'Unknown'
+    if (character.hair_color == null) character.hair_color = 'Unknown'
+    if (character.eye_color == null) character.eye_color = 'Unknown'
+    if (character.patronus == null) character.patronus = 'Unknown'
+    if (character.house == null) character.house = 'Unknown'
+    if (character.books_featured_in == null) character.books_featured_in = 'Unknown'
+
     cardTitle.innerHTML = `${character.name}`
     cardContent.innerHTML = 
      `
@@ -164,7 +175,6 @@ booksList.forEach(title => {
     title.addEventListener('click', displayBookCard);
 });
 
-
 function displaySpellCard(event) {
     document.getElementById('spells-list').style.display = 'none';
     document.getElementById('card-info-spells').style.display = 'block';
@@ -184,7 +194,7 @@ function displaySpellCard(event) {
      ` 
     }); 
 }
-    
+
 const spellsList = Array.from(document.getElementsByClassName('modal-spells-content')); 
 spellsList.forEach(name => {
     name.addEventListener('click', displaySpellCard);
