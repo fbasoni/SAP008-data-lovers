@@ -1,0 +1,476 @@
+@font-face {
+    font-family: 'Harry Potter';
+    src: url('./fonts/HARRYP__.TTF') format('truetype');
+  }
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('./Images/BGDesktop.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    display: flex;
+    background-color: #700505;
+    height: 19vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.page-logo {
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-left: -4rem;
+    margin-right: 25rem;
+}
+
+.menu-btns {
+    text-align: center;
+    padding: 0.2rem;
+    margin-left: 0.3rem;
+    border-color: #DC9F03;
+    border-width: 3px;
+    border-radius: 5px;
+    font-family: 'Harry Potter';
+    font-weight: lighter;
+    font-size: 1.3rem;
+    text-align: center;
+    text-shadow: 2px 1px #1616162e;
+    background-color: #DC9F03;
+    color: #193833;
+}
+
+.menu-btns:hover,
+.search-icon:hover,
+.return-btn:hover,
+.modal-btn:hover {
+    cursor: pointer;
+    background-color: #0b1c19;
+    border-color: #0b1c19;
+    color: white;
+    text-shadow: 2px 1px #1616162e;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.welcome {
+    text-align: center;
+    background-color: #dc9f03c9;
+    color: white;
+    border-radius: 25px;
+    padding: 0.10rem 1.2rem;
+    max-width: 36%;
+}
+
+.welcome-title {
+    font-size: 2.2rem;
+    font-weight: 150;
+    font-family: "Harry Potter";
+    color: #193833;
+    text-shadow: 3px 3px #1616162e;
+}
+
+.welcome-description {
+    margin-top: -0.8rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.welcome-text {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #700505;
+    height: 3.1rem;
+    padding-bottom: 0.2rem;
+    min-width: 100%;
+    bottom: 0;
+    gap: 0.5rem;
+}
+
+.footer-title,
+.footer-link {
+    font-family: "Harry Potter";
+    font-weight: 100;
+    font-size: 1.4rem;
+    text-shadow: 3px 2px #1616162e;
+    color: white;
+    margin-block-start: 1.8rem;
+}
+
+.footer-copyright {
+    color: #ad7d01;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: light;
+    margin-block-start: 1.2rem;
+}
+
+.modal-list {
+    position: relative;
+    width: 45rem;
+    height: 30rem;
+    align-items: center;
+    background: rgba(95, 1, 1, 0.83);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    display: flex;
+    border-radius: 5px;
+}
+
+.modal-characters-content,
+.modal-books-content,
+.modal-spells-content {
+    overflow-y: scroll;
+    font-size: 1.1rem;
+    font-family: "Roboto";
+    margin: 0 auto;
+    margin-top: 0.6rem;
+    padding: 0.5rem;
+    position: relative;
+    border-radius: 5px;
+    width: 40rem;
+    height: 14rem;
+    background: white;
+    z-index: 99999;
+}
+
+.list-elements:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: rgb(45, 45, 238)
+}
+
+.modal-header {
+    padding-top: 0.6rem;
+    position: relative;
+    margin-top: 0.8rem;
+    background: #DC9E00;
+    text-align: center;
+    font-family: "Harry Potter";
+    font-size: 1.5rem;
+    color: #193833;
+}
+
+.modal-text {
+    text-align: center;
+    font-family: "Nunito";
+    color: #F7F7F7;
+    font-size: 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1.1rem;
+}
+
+.horizontal-center {
+    margin-left: 10.8rem;
+    margin-top: -0.3rem;
+}
+
+.modal-btn {
+    margin-left: 0.6rem;
+    padding: 0rem 0.4rem 0rem;
+    margin-bottom: 0.2rem;
+    border-color: #DC9F03;
+    border-width: 3px;
+    border-radius: 20px;
+    font-family: 'Harry Potter';
+    font-weight: lighter;
+    font-size: 0.9rem;
+    text-align: center;
+    text-shadow: 2px 1px #1616162e;
+    background-color: #DC9F03;
+    color: #193833;
+}
+
+.footer-modal {
+    position: relative;
+    margin-top: 2rem;
+    text-align: center;
+    font-family: "Nunito";
+    color: #F7F7F7;
+    font-size: 1.1rem;
+    margin-bottom: 1.1rem;
+    padding: 0.1rem;
+    margin-inline: 2rem;
+}
+
+.house-name {
+    font-weight: bold;
+    color: #DC9E00;
+    font-style: italic;
+}
+
+.sortBy {
+    border-radius: 0.40rem;
+}
+
+.modal-card {
+    display: flex;
+    margin: 0 auto;
+    background-color: rgba(95, 1, 1, 0.83);
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
+    padding-block-end: 4rem;
+    height: 26rem;
+    width: 45rem;
+    position: relative;
+    border-radius: 5px;
+}
+
+.card-title {
+    margin-top: 0.8rem;
+    padding-top: 0.6rem;
+    background-color:#DC9E00;
+    font-family: 'Harry Potter';
+    font-size: 1.8rem;
+    font-weight: 200;
+    color: #0b1c19;
+    text-align: center;
+}
+
+.card-content {
+    font-family: 'Roboto';
+    font-size: 1.2rem;
+    background-color: white;
+    padding-left: 2rem;
+    padding-block-start:2rem;
+    margin-inline: 2rem;
+    overflow-y: scroll;
+    height: 16rem;
+}
+
+.card-content-heading {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #193833;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: 0.1rem;
+}
+
+.card-line {
+    text-align: justify;
+    margin-bottom: 1rem;
+    margin-right: 1.8rem;
+}
+
+.return-btn {
+    background-color: #0b1c19;
+    color: white;
+    font-family: 'Harry Potter';
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: center;
+    border: 0px;
+    border-radius: 13px;
+    padding: 0.5rem 0.9rem;
+    position: relative;
+    margin-left: 20rem;
+    margin-top: 1.8rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        background-image: url('./Images/BGMobile.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .header {
+        min-width: 100%;
+        max-height: 25vh;
+        background-image: url('./Images/Logo.svg');
+        background-position-x: 50%;
+        background-position-y: 1.5vh;
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 9999;
+    }
+
+    .page-logo {
+        visibility: hidden;
+    }
+
+    .menu-btns {
+        margin-block-start: 1rem;
+        padding: 0.3rem 0.3rem;
+        border-width: 1.5px;
+        border-radius: 30px;
+        font-size: 0.8rem;
+    }
+
+    .welcome {
+        margin-block-start: 1.2rem;
+        color: white;
+        max-width: 70%;
+        max-height: 35%;
+        padding: 0.5rem;
+        border-radius: 15px;
+    }
+
+    .welcome-title {
+        margin-block-start: 0.2rem;
+        margin-block-end: 0.3rem;
+        font-size: 1.2rem;
+        font-weight: 150;
+    }
+
+    .welcome-description,
+    .welcome-text {
+        margin-block-start: 0.2rem;
+        margin-block-end: 0.2rem;
+        font-size: 0.85rem;
+    }
+
+    .footer {
+        min-width: 100%;
+        min-height: 2.5rem;
+    }
+
+    .footer-link {
+        margin-block-end: 0.9rem;
+        color: white;
+        font-size: 1rem;
+    }
+
+    .footer-copyright {
+        color: #ad7d01;
+        font-size: 0.7rem;
+    }
+
+    
+    .modal-list {
+        width: 19rem;
+        height: 23rem;
+    }
+
+    .modal-characters-content,
+    .modal-books-content,
+    .modal-spells-content {
+        overflow-y: scroll;
+        font-size: 0.7rem;
+        margin-top: 1.2rem;
+        padding: 0.2rem;
+        width: 16rem;
+        height: 12rem;
+    }
+
+    .modal-header {
+        padding-top: 0.2rem;
+        margin-top: 0.6rem;
+        font-family: "Harry Potter";
+        font-size: 1rem;
+        font-weight: light;
+    }
+
+    .modal-text {
+        text-align: center;
+        font-family: "Nunito";
+        color: #F7F7F7;
+        font-size: 0.7rem;
+        margin-top: -0.2rem;
+        margin-bottom: -1.5rem;
+    }
+
+    .horizontal-center {
+        margin-top: 2rem;
+        margin-left: 1.7rem;
+        margin-bottom: -0.7rem;
+    }
+
+    .modal-btn {
+        margin-left: 0.8rem;
+        padding: 0.1rem;
+        border-color: #DC9F03;
+        border-width: 1px;
+        border-radius: 5px;
+        font-family: 'Harry Potter';
+        font-weight: lighter;
+        font-size: 0.55rem;
+        text-align: center;
+        text-shadow: 2px 1px #1616162e;
+        background-color: #DC9F03;
+        color: #193833;
+    }
+
+    .sortBy {
+        border-radius: 0.4rem;
+        padding: -0.5rem;
+        font-size: 0.5rem;
+        margin-left: 0.3rem;
+    }
+
+    .modal-card {
+        width: 18rem;
+        height: 16.9rem;
+    }
+    
+    .card-title {
+        margin-top: 0.6rem;
+        padding-top: 0.2rem;
+        font-size: 1rem;
+    }
+    
+    .card-content {
+        font-family: 'Roboto';
+        font-size: 0.8rem;
+        overflow-y: scroll;
+        height: 12rem;
+        padding-left: 1.8rem;
+        padding-bottom:1.9rem;
+        margin-left: 1rem;
+    }
+    
+    .card-content-heading {
+        font-size: 0.8rem;
+    }
+    
+    .return-btn {
+        font-size: 0.8rem;
+        border-radius: 5px;
+        padding: 0.1rem 0.1rem;
+        position: relative;
+        margin-left: 7.8rem;
+        margin-top: 1.3rem;
+    }
+
+    .footer-modal {
+        padding: 0.1rem;
+        margin-inline: 2rem;
+        margin-top: 0.9rem;
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-line {
+        text-align:justify;
+        margin-left: -0.9rem;
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+}
