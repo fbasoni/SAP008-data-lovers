@@ -11,9 +11,8 @@ function charactersFromZtoA(charactersNames) {
   return charactersNames.sort().reverse();
 }
 
-function displayCharactersList(names) {
-  let characters = names.map((characters) => characters.name);
-  return characters;
+function displayCharactersList(characters) {
+  return characters.map((character) => character.name);
 }
 
 function displayBooksList(books) {
