@@ -4,8 +4,7 @@ export const mainFilters = {
 };
 
 function displayCharactersList(names) {
-  let characters = names.map((characters) => characters.name);
-  return characters;
+  return names.map((characters) => characters.name);
 }
 
 function displayBooksList(books) {
