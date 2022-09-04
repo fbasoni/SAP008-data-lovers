@@ -3,8 +3,8 @@ export const mainFilters = {
   filterCharactersByHouses, sortNames, calcPercentage
 };
 
-function displayCharactersList(names) {
-  return names.map((characters) => characters.name);
+function displayCharactersList(characters) {
+  return characters.map((character) => character.name);
 }
 
 function displayBooksList(books) {
