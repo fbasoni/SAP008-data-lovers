@@ -3,14 +3,6 @@ export const mainFilters = {
   filterCharactersByHouses, sortBy, calcPercentage
 };
 
-function charactersFromAtoZ(charactersNames) {
-  return charactersNames.sort();
-}
-
-function charactersFromZtoA(charactersNames) {
-  return charactersNames.sort().reverse();
-}
-
 function displayCharactersList(names) {
   let characters = names.map((characters) => characters.name);
   return characters;
@@ -34,13 +26,21 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
 }
 
 function sortBy(arrObjects, sortByParam) {
-  if (sortByParam == 'asc') {
+  if (sortByParam === 'asc') {
     arrObjects = charactersFromAtoZ(arrObjects);
   }
-  else if (sortByParam == 'desc') {
+  else if (sortByParam === 'desc') {
     arrObjects = charactersFromZtoA(arrObjects);
   }
   return arrObjects
+}
+
+function charactersFromAtoZ(charactersNames) {
+  return charactersNames.sort();
+}
+
+function charactersFromZtoA(charactersNames) {
+  return charactersNames.sort().reverse();
 }
 
 function calcPercentage(lengthFilteredCharacters, lengthAllCharacters) {
