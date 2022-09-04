@@ -1,18 +1,11 @@
 export const mainFilters = {
   displayCharactersList, displayBooksList, displaySpellsList,
-  filterCharactersByHouses, sortBy, calcPercentage
+  filterCharactersByHouses, sortNames, calcPercentage
 };
 
-function charactersFromAtoZ(charactersNames) {
-  return charactersNames.sort();
-}
-
-function charactersFromZtoA(charactersNames) {
-  return charactersNames.sort().reverse();
-}
-
-function displayCharactersList(characters) {
-  return characters.map((character) => character.name);
+function displayCharactersList(names) {
+  let characters = names.map((characters) => characters.name);
+  return characters;
 }
 
 function displayBooksList(books) {
@@ -32,22 +25,22 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
   return filteredCharacters.map((character) => character.name)
 }
 
-function sortBy(arrObjects, sortByParam) {
-  if (sortByParam == 'asc') {
-    arrObjects = charactersFromAtoZ(arrObjects);
-  }
-  else if (sortByParam == 'desc') {
-    arrObjects = charactersFromZtoA(arrObjects);
-  }
-  return arrObjects
+function sortNames(charactersList, sortValue) {
+  if (sortValue === 'asc') {
+    return charactersNamesFromAtoZ(charactersList);
+  } else if (sortValue === 'desc') {
+    return charactersNamesFromZtoA(charactersList);
+  } 
 }
 
-function calcPercentage(lengthFilteredCharacters, lengthAllCharacters) {
-  if (lengthFilteredCharacters < 0) {
-    throw TypeError("Can't receive a negative number");
-  }
-  if (lengthAllCharacters == 0) {
-    throw TypeError("Can't divide by zero");
-  }
-  return Math.round((lengthFilteredCharacters * 100) / lengthAllCharacters);
+function charactersNamesFromAtoZ(names) {
+  return names.sort();
+}
+
+function charactersNamesFromZtoA(names) {
+  return names.sort().reverse();
+}
+
+function calcPercentage(filteredCharactersLength, allCharactersLength) {
+  return Math.round((filteredCharactersLength * 100) / allCharactersLength);
 }
