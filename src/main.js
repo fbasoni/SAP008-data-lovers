@@ -4,32 +4,44 @@ import data from './data/harrypotter/data.js';
 const dataBaseCharacters = data.characters;
 const dataBaseBooks = data.books;
 const dataBaseSpells = data.spells;
+
+const welcomeSection = document.getElementById('welcome-section');
+const charactersList = document.getElementById('characters-list');
+const booksList = document.getElementById('books-list');
+const spellsList = document.getElementById('spells-list');
+const charactersResult = document.getElementById('characters-content');
+const booksResult = document.getElementById('books-content');
+const spellsResult = document.getElementById('spells-content');
+const charactersListHeader = document.getElementById('header-modal-characters');
+const characterCard = document.getElementById('card-info-characters');
+const bookCard = document.getElementById('card-info-books');
+const spellCard = document.getElementById('card-info-spells');
+const percentageResult = document.getElementById('characters-percentage');
+
 let charactersNames;
 
-
 function hideModals() {
-    document.getElementById('welcome-section').style.display = 'none';
-    document.getElementById('books-list').style.display = 'none';
-    document.getElementById('spells-list').style.display = 'none';
-    document.getElementById('characters-list').style.display = 'none';
-    document.getElementById('card-info-characters').style.display = 'none';
-    document.getElementById('card-info-books').style.display = 'none';
-    document.getElementById('card-info-spells').style.display = 'none';
-    document.getElementById('characters-percentage').style.display = 'none';
+    welcomeSection.style.display = 'none';
+    booksList.style.display = 'none';
+    spellsList.style.display = 'none';
+    charactersList.style.display = 'none';
+    characterCard.style.display = 'none';
+    bookCard.style.display = 'none';
+    spellCard.style.display = 'none';
+    percentageResult.style.display = 'none';
 }
 
-function formatList(arrayObjects) {
-    return arrayObjects.map(names => `<ul><li class="list-elements">${names}</li></ul>`).join('');
+function formatList(arrayElements) {
+    return arrayElements.map((elementName) => `<ul><li class="list-elements">${elementName}</li></ul>`).join('');
 }
 
 function displayCharactersList() {
-    const sortBy = document.getElementById('sort').value;
+    const sortValue = document.getElementById('sort').value;
     charactersNames = mainFilters.displayCharactersList(dataBaseCharacters);
-    charactersNames = mainFilters.sortBy(charactersNames, sortBy);
+    mainFilters.sortNames(charactersNames, sortValue);
     hideModals();
-    document.getElementById('characters-list').style.display = 'block';
-    document.getElementById('header-modal-characters').innerText = 'Characters list';
-    const charactersResult = document.getElementById('characters-content');
+    charactersList.style.display = 'block';
+    charactersListHeader.innerText = 'Characters list';
     return charactersResult.innerHTML = formatList(charactersNames);
 }
 
@@ -38,98 +50,86 @@ btnCharacters.addEventListener('click', displayCharactersList);
 
 const sortCharacters = document.getElementById('sort');
 sortCharacters.addEventListener('change', () => {
-    const sortBy = document.getElementById('sort').value;
-    charactersNames = mainFilters.sortBy(charactersNames, sortBy)
-    const charactersResult = document.getElementById('characters-content');
+    const sortValue = document.getElementById('sort').value;
+    charactersNames = mainFilters.sortNames(charactersNames, sortValue);
     return charactersResult.innerHTML = formatList(charactersNames);
 });
 
 function displayCharactersByHouse(house) {
     charactersNames = mainFilters.filterCharactersByHouses(dataBaseCharacters, house);
-    const sortBy = document.getElementById('sort').value;
-    charactersNames = mainFilters.sortBy(charactersNames, sortBy);
+    const sortValue = document.getElementById('sort').value;
+    charactersNames = mainFilters.sortNames(charactersNames, sortValue);
     let percentageOfCharsByHouse = mainFilters.calcPercentage(charactersNames.length, dataBaseCharacters.length);
     document.getElementById('characters-percentage').innerHTML = `The characters in <em class="house-name">${house}</em> represent ${percentageOfCharsByHouse}% of all characters in the Harry Potter Books`
     hideModals();
-    document.getElementById('characters-list').style.display = 'block';
-    document.getElementById('characters-percentage').style.display = 'block';
-    const charactersByHouseResult = document.getElementById('characters-content');
-    return charactersByHouseResult.innerHTML = formatList(charactersNames);
+    charactersList.style.display = 'block';
+    percentageResult.style.display = 'block';
+    return charactersResult.innerHTML = formatList(charactersNames);
 }
 
-const btnGryffindor = document.getElementById('btn-gryffindor')
-btnGryffindor.addEventListener('click',
-    function displayGryffindorCharacters() {
-        const house = 'Gryffindor';
-        document.getElementById('header-modal-characters').innerText = 'Characters from house Gryffindor';
-        displayCharactersByHouse(house);
-    })
+const btnGryffindor = document.getElementById('btn-gryffindor');
+btnGryffindor.addEventListener('click', () => {
+    const house = 'Gryffindor';
+    charactersListHeader.innerText = 'Characters from house Gryffindor';
+    displayCharactersByHouse(house);
+});
 
 const btnSlytherin = document.getElementById('btn-slytherin')
-btnSlytherin.addEventListener('click',
-    function displaySlytherinCharacters() {
-        const house = 'Slytherin';
-        document.getElementById('header-modal-characters').innerText = 'Characters from house Slytherin';
-        displayCharactersByHouse(house);
-    })
+btnSlytherin.addEventListener('click', () => {
+    const house = 'Slytherin';
+    charactersListHeader.innerText = 'Characters from house Slytherin';
+    displayCharactersByHouse(house);
+});
 
 const btnHufflepuff = document.getElementById('btn-hufflepuff')
-btnHufflepuff.addEventListener('click',
-    function displayHufflePuffCharacters() {
-        const house = 'Hufflepuff';
-        document.getElementById('header-modal-characters').innerText = 'Characters from house Hufflepuff';
-        displayCharactersByHouse(house);
-    })
+btnHufflepuff.addEventListener('click', () => {
+    const house = 'Hufflepuff';
+    charactersListHeader.innerText = 'Characters from house Hufflepuff';
+    displayCharactersByHouse(house);
+});
 
 const btnRavenclaw = document.getElementById('btn-ravenclaw')
-btnRavenclaw.addEventListener('click',
-    function displayRavenclawCharacters() {
-        const house = 'Ravenclaw';
-        document.getElementById('header-modal-characters').innerText = 'Characters from house Ravenclaw';
-        displayCharactersByHouse(house);
-    })
+btnRavenclaw.addEventListener('click', () => {
+    const house = 'Ravenclaw';
+    charactersListHeader.innerText = 'Characters from house Ravenclaw';
+    displayCharactersByHouse(house);
+});
 
 const btnBooks = document.getElementById('btn-books');
-btnBooks.addEventListener('click',
-    function displayBooksList() {
-        const bookTitles = mainFilters.displayBooksList(dataBaseBooks);
-        hideModals();
-        document.getElementById('books-list').style.display = 'block';
-
-        const booksResult = document.getElementById('books-content');
-        return booksResult.innerHTML = formatList(bookTitles);
-    })
+btnBooks.addEventListener('click', () => {
+    const bookTitles = mainFilters.displayBooksList(dataBaseBooks);
+    hideModals();
+    booksList.style.display = 'block';
+    return booksResult.innerHTML = formatList(bookTitles);
+});
 
 const btnSpells = document.getElementById('btn-spells');
-btnSpells.addEventListener('click',
-    function displaySpellsList() {
-        const spellsNames = mainFilters.displaySpellsList(dataBaseSpells);
-        hideModals()
-        document.getElementById('spells-list').style.display = 'block';
-
-        const spellsResult = document.getElementById('spells-content');
-        return spellsResult.innerHTML = formatList(spellsNames);
-    })
+btnSpells.addEventListener('click', () => {
+    const spellsNames = mainFilters.displaySpellsList(dataBaseSpells);
+    hideModals();
+    spellsList.style.display = 'block';
+    return spellsResult.innerHTML = formatList(spellsNames);
+});
 
 function displayCharacterCard(listedCharacter) {
-    document.getElementById('characters-list').style.display = 'none';
-    document.getElementById('card-info-characters').style.display = 'block';
+    charactersList.style.display = 'none';
+    characterCard.style.display = 'block';
     const cardContent = document.getElementById('card-content-characters');
     const cardTitle = document.getElementById('card-title-characters');
     const clickedName = listedCharacter.target.innerText;
     const filterCharacters = dataBaseCharacters.filter((character) => character.name === clickedName);
            
     return filterCharacters.map((character) => {
-        if (character.birth == null) character.birth = 'Unknown'
-        if (character.death == null) character.death = 'Unknown'
-        if (character.species == null) character.species = 'Unknown'
-        if (character.ancestry == null) character.ancestry = 'Unknown'
-        if (character.gender == null) character.gender = 'Unknown'
-        if (character.hair_color == null) character.hair_color = 'Unknown'
-        if (character.eye_color == null) character.eye_color = 'Unknown'
-        if (character.patronus == null) character.patronus = 'Unknown'
-        if (character.house == null) character.house = 'Unknown'
-        if (character.books_featured_in == null) character.books_featured_in = 'Unknown'
+        if (character.birth === null) character.birth = 'Unknown'
+        if (character.death === null) character.death = 'Unknown'
+        if (character.species === null) character.species = 'Unknown'
+        if (character.ancestry === null) character.ancestry = 'Unknown'
+        if (character.gender === null) character.gender = 'Unknown'
+        if (character.hair_color === null) character.hair_color = 'Unknown'
+        if (character.eye_color === null) character.eye_color = 'Unknown'
+        if (character.patronus === null) character.patronus = 'Unknown'
+        if (character.house === null) character.house = 'Unknown'
+        if (character.books_featured_in === null) character.books_featured_in = 'Unknown'
 
         cardTitle.innerHTML = `${character.name}`
         cardContent.innerHTML = 
@@ -148,23 +148,21 @@ function displayCharacterCard(listedCharacter) {
     }) 
 }
     
-const charactersList = Array.from(document.getElementsByClassName('modal-characters-content')); 
-charactersList.forEach(characterName => {
-    characterName.addEventListener('click', displayCharacterCard);
-});
+const charactersListItens = Array.from(document.getElementsByClassName('modal-characters-content')); 
+charactersListItens.forEach((characterName) => characterName.addEventListener('click', displayCharacterCard));
 
 function displayBookCard(listedBook) {
-    document.getElementById('books-list').style.display = 'none';
-    document.getElementById('card-info-books').style.display = 'block';
+    booksList.style.display = 'none';
+    bookCard.style.display = 'block';
     const cardContent = document.getElementById('card-content-books');
     const cardTitle = document.getElementById('card-title-books');
     const clickedTitle = listedBook.target.innerText;
     const filterBooks = dataBaseBooks.filter((book) => book.title === clickedTitle);
        
     return filterBooks.map((book) => {
-        if (book.releaseDay == null) book.releaseDay = 'Unknown'
-        if (book.author == null) book.author = 'Unknown'
-        if (book.description == null) book.description = 'Unknown'
+        if (book.releaseDay === null) book.releaseDay = 'Unknown'
+        if (book.author === null) book.author = 'Unknown'
+        if (book.description === null) book.description = 'Unknown'
         cardTitle.innerHTML = `${book.title}`
         cardContent.innerHTML = 
             `
@@ -175,24 +173,22 @@ function displayBookCard(listedBook) {
     }); 
 }
     
-const booksList = Array.from(document.getElementsByClassName('modal-books-content')); 
-booksList.forEach(bookTitle => {
-    bookTitle.addEventListener('click', displayBookCard);
-});
+const booksListItens = Array.from(document.getElementsByClassName('modal-books-content')); 
+booksListItens.forEach((bookTitle) => bookTitle.addEventListener('click', displayBookCard));
 
 function displaySpellCard(listedSpell) {
-    document.getElementById('spells-list').style.display = 'none';
-    document.getElementById('card-info-spells').style.display = 'block';
+    spellsList.style.display = 'none';
+    spellCard.style.display = 'block';
     const cardContent = document.getElementById('card-content-spells')
     const cardTitle = document.getElementById('card-title-spells')
     const clickedSpell = listedSpell.target.innerText;
     const filterSpells = dataBaseSpells.filter((spell) => spell.name === clickedSpell);
        
     return filterSpells.map((spell) => {
-        if (spell.pronunciation == null) spell.pronunciation = 'Unknown'
-        if (spell.spell_type == null) spell.spell_type = 'Unknown'
-        if (spell.description == null) spell.description = 'Unknown'
-        if (spell.mention == null) spell.mention = 'Unknown'
+        if (spell.pronunciation === null) spell.pronunciation = 'Unknown'
+        if (spell.spell_type === null) spell.spell_type = 'Unknown'
+        if (spell.description === null) spell.description = 'Unknown'
+        if (spell.mention === null) spell.mention = 'Unknown'
         cardTitle.innerHTML = `${spell.name}`
         cardContent.innerHTML = 
             `
@@ -204,35 +200,29 @@ function displaySpellCard(listedSpell) {
     }); 
 }
 
-const spellsList = Array.from(document.getElementsByClassName('modal-spells-content')); 
-spellsList.forEach(spellName => {
-    spellName.addEventListener('click', displaySpellCard);
-});
+const spellsListItens = Array.from(document.getElementsByClassName('modal-spells-content')); 
+spellsListItens.forEach(spellName => spellName.addEventListener('click', displaySpellCard));
 
 const returnToCharactersList = document.getElementById('return-btn-characters');
-returnToCharactersList.addEventListener('click', 
-function returnButtonCharacter(){
-    hideModals()
-    document.getElementById('characters-list').style.display = 'block';
+returnToCharactersList.addEventListener('click', () => {
+    hideModals();
+    charactersList.style.display = 'block';
 });
 
 const returnToBooksList = document.getElementById('return-btn-books');
-returnToBooksList.addEventListener('click', 
-function returnButtonBook(){
-    hideModals()
-    document.getElementById('books-list').style.display = 'block';
+returnToBooksList.addEventListener('click', () => {
+    hideModals();
+    booksList.style.display = 'block';
 });
 
 const returnToSpellsList = document.getElementById('return-btn-spells');
-returnToSpellsList.addEventListener('click', 
-function returnButtonSpell(){
-    hideModals()
-    document.getElementById('spells-list').style.display = 'block';
+returnToSpellsList.addEventListener('click', () => {
+    hideModals();
+    spellsList.style.display = 'block';
 });
 
-const pageLogo = document.getElementById('page-logo');
-pageLogo.addEventListener('click',
-function returnToHomepage(){
-    hideModals()
-    document.getElementById('welcome-section').style.display = 'block';
+const returnToPageLogo = document.getElementById('page-logo');
+returnToPageLogo.addEventListener('click', () => {
+    hideModals();
+    welcomeSection.style.display = 'block';
 });

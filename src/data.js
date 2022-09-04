@@ -1,18 +1,10 @@
 export const mainFilters = {
   displayCharactersList, displayBooksList, displaySpellsList,
-  filterCharactersByHouses, sortBy, calcPercentage
+  filterCharactersByHouses, sortNames, calcPercentage
 };
 
-function charactersFromAtoZ(charactersNames) {
-  return charactersNames.sort();
-}
-
-function charactersFromZtoA(charactersNames) {
-  return charactersNames.sort().reverse();
-}
-
-function displayCharactersList(characters) {
-  return characters.map((character) => character.name);
+function displayCharactersList(names) {
+  return names.map((characters) => characters.name);
 }
 
 function displayBooksList(books) {
@@ -27,27 +19,29 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
   const filteredCharacters = characters.filter((character) => {
     if (character.house === houseToFilterBy && character.house !== null) {
       return true;
+    } else {
+      return false;
     }
   })
-  return filteredCharacters.map((character) => character.name)
+  return filteredCharacters.map((character) => character.name);
 }
 
-function sortBy(arrObjects, sortByParam) {
-  if (sortByParam == 'asc') {
-    arrObjects = charactersFromAtoZ(arrObjects);
-  }
-  else if (sortByParam == 'desc') {
-    arrObjects = charactersFromZtoA(arrObjects);
-  }
-  return arrObjects
+function sortNames(charactersList, sortValue) {
+  if (sortValue === 'asc') {
+    return charactersNamesFromAtoZ(charactersList);
+  } else if (sortValue === 'desc') {
+    return charactersNamesFromZtoA(charactersList);
+  } 
 }
 
-function calcPercentage(lengthFilteredCharacters, lengthAllCharacters) {
-  if (lengthFilteredCharacters < 0) {
-    throw TypeError("Can't receive a negative number");
-  }
-  if (lengthAllCharacters == 0) {
-    throw TypeError("Can't divide by zero");
-  }
-  return Math.round((lengthFilteredCharacters * 100) / lengthAllCharacters);
+function charactersNamesFromAtoZ(names) {
+  return names.sort();
+}
+
+function charactersNamesFromZtoA(names) {
+  return names.sort().reverse();
+}
+
+function calcPercentage(filteredCharactersLength, allCharactersLength) {
+  return Math.round((filteredCharactersLength * 100) / allCharactersLength);
 }

@@ -95,15 +95,15 @@ describe('mainFilters.filterCharactersByHouses', () => {
   });
 });
 
-describe('mainFilters.sortBy', () => {
+describe('mainFilters.sortNames', () => {
   it('should be a function', () => {
-    expect(typeof mainFilters.sortBy).toBe('function')
+    expect(typeof mainFilters.sortNames).toBe('function')
   });
   it('should return sorted from A to Z', () => {
-    expect(mainFilters.sortBy(listToSort, 'asc')).toStrictEqual([1, 'A', 'B', 'C'])
+    expect(mainFilters.sortNames(listToSort, 'asc')).toStrictEqual([1, 'A', 'B', 'C'])
   });
   it('should return sorted from Z to A', () => {
-    expect(mainFilters.sortBy(listToSort, 'desc')).toStrictEqual(['C', 'B', 'A', 1])
+    expect(mainFilters.sortNames(listToSort, 'desc')).toStrictEqual(['C', 'B', 'A', 1])
   });
 });
 
@@ -111,15 +111,8 @@ describe('mainFilters.calcPercentage', () => {
   it('should be a function', () => {
     expect(typeof mainFilters.calcPercentage).toBe('function')
   });
-
-it ('should return 30%', () => {
-  expect(mainFilters.calcPercentage(30, 100)).toBe(30)
-});
-
-it ('should throw Error when receive a negative number', () => {
-  expect(() => mainFilters.calcPercentage(-30, 100)).toThrow(TypeError);
-});
-it ('should throw Error when receive zero as divisor', () => {
-  expect(() => mainFilters.calcPercentage(30, 0)).toThrow(TypeError);
-});
+  
+  it ('should return 30%', () => {
+    expect(mainFilters.calcPercentage(30, 100)).toBe(30)
+  });
 });
