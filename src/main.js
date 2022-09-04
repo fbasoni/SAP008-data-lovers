@@ -20,7 +20,6 @@ const percentageResult = document.getElementById('characters-percentage');
 
 let charactersNames;
 
-
 function hideModals() {
     welcomeSection.style.display = 'none';
     booksList.style.display = 'none';
@@ -33,7 +32,7 @@ function hideModals() {
 }
 
 function formatList(arrayElements) {
-    return arrayElements.map(elementName => `<ul><li class="list-elements">${elementName}</li></ul>`).join('');
+    return arrayElements.map((elementName) => `<ul><li class="list-elements">${elementName}</li></ul>`).join('');
 }
 
 function displayCharactersList() {
@@ -52,7 +51,7 @@ btnCharacters.addEventListener('click', displayCharactersList);
 const sortCharacters = document.getElementById('sort');
 sortCharacters.addEventListener('change', () => {
     const sortValue = document.getElementById('sort').value;
-    charactersNames = mainFilters.sortNames(charactersNames, sortValue)
+    charactersNames = mainFilters.sortNames(charactersNames, sortValue);
     return charactersResult.innerHTML = formatList(charactersNames);
 });
 
@@ -68,55 +67,49 @@ function displayCharactersByHouse(house) {
     return charactersResult.innerHTML = formatList(charactersNames);
 }
 
-const btnGryffindor = document.getElementById('btn-gryffindor')
-btnGryffindor.addEventListener('click',
-    function displayGryffindorCharacters() {
-        const house = 'Gryffindor';
-        charactersListHeader.innerText = 'Characters from house Gryffindor';
-        displayCharactersByHouse(house);
-    })
+const btnGryffindor = document.getElementById('btn-gryffindor');
+btnGryffindor.addEventListener('click', () => {
+    const house = 'Gryffindor';
+    charactersListHeader.innerText = 'Characters from house Gryffindor';
+    displayCharactersByHouse(house);
+});
 
 const btnSlytherin = document.getElementById('btn-slytherin')
-btnSlytherin.addEventListener('click',
-    function displaySlytherinCharacters() {
-        const house = 'Slytherin';
-        charactersListHeader.innerText = 'Characters from house Slytherin';
-        displayCharactersByHouse(house);
-    })
+btnSlytherin.addEventListener('click', () => {
+    const house = 'Slytherin';
+    charactersListHeader.innerText = 'Characters from house Slytherin';
+    displayCharactersByHouse(house);
+});
 
 const btnHufflepuff = document.getElementById('btn-hufflepuff')
-btnHufflepuff.addEventListener('click',
-    function displayHufflePuffCharacters() {
-        const house = 'Hufflepuff';
-        charactersListHeader.innerText = 'Characters from house Hufflepuff';
-        displayCharactersByHouse(house);
-    })
+btnHufflepuff.addEventListener('click', () => {
+    const house = 'Hufflepuff';
+    charactersListHeader.innerText = 'Characters from house Hufflepuff';
+    displayCharactersByHouse(house);
+});
 
 const btnRavenclaw = document.getElementById('btn-ravenclaw')
-btnRavenclaw.addEventListener('click',
-    function displayRavenclawCharacters() {
-        const house = 'Ravenclaw';
-        charactersListHeader.innerText = 'Characters from house Ravenclaw';
-        displayCharactersByHouse(house);
-    })
+btnRavenclaw.addEventListener('click', () => {
+    const house = 'Ravenclaw';
+    charactersListHeader.innerText = 'Characters from house Ravenclaw';
+    displayCharactersByHouse(house);
+});
 
 const btnBooks = document.getElementById('btn-books');
-btnBooks.addEventListener('click',
-    function displayBooksList() {
-        const bookTitles = mainFilters.displayBooksList(dataBaseBooks);
-        hideModals();
-        booksList.style.display = 'block';
-        return booksResult.innerHTML = formatList(bookTitles);
-    })
+btnBooks.addEventListener('click', () => {
+    const bookTitles = mainFilters.displayBooksList(dataBaseBooks);
+    hideModals();
+    booksList.style.display = 'block';
+    return booksResult.innerHTML = formatList(bookTitles);
+});
 
 const btnSpells = document.getElementById('btn-spells');
-btnSpells.addEventListener('click',
-    function displaySpellsList() {
-        const spellsNames = mainFilters.displaySpellsList(dataBaseSpells);
-        hideModals()
-        spellsList.style.display = 'block';
-        return spellsResult.innerHTML = formatList(spellsNames);
-    })
+btnSpells.addEventListener('click', () => {
+    const spellsNames = mainFilters.displaySpellsList(dataBaseSpells);
+    hideModals();
+    spellsList.style.display = 'block';
+    return spellsResult.innerHTML = formatList(spellsNames);
+});
 
 function displayCharacterCard(listedCharacter) {
     charactersList.style.display = 'none';
@@ -156,9 +149,7 @@ function displayCharacterCard(listedCharacter) {
 }
     
 const charactersListItens = Array.from(document.getElementsByClassName('modal-characters-content')); 
-charactersListItens.forEach(characterName => {
-    characterName.addEventListener('click', displayCharacterCard);
-});
+charactersListItens.forEach((characterName) => characterName.addEventListener('click', displayCharacterCard));
 
 function displayBookCard(listedBook) {
     booksList.style.display = 'none';
@@ -183,9 +174,7 @@ function displayBookCard(listedBook) {
 }
     
 const booksListItens = Array.from(document.getElementsByClassName('modal-books-content')); 
-booksListItens.forEach(bookTitle => {
-    bookTitle.addEventListener('click', displayBookCard);
-});
+booksListItens.forEach((bookTitle) => bookTitle.addEventListener('click', displayBookCard));
 
 function displaySpellCard(listedSpell) {
     spellsList.style.display = 'none';
@@ -212,34 +201,28 @@ function displaySpellCard(listedSpell) {
 }
 
 const spellsListItens = Array.from(document.getElementsByClassName('modal-spells-content')); 
-spellsListItens.forEach(spellName => {
-    spellName.addEventListener('click', displaySpellCard);
-});
+spellsListItens.forEach(spellName => spellName.addEventListener('click', displaySpellCard));
 
 const returnToCharactersList = document.getElementById('return-btn-characters');
-returnToCharactersList.addEventListener('click', 
-function returnButtonCharacter(){
-    hideModals()
+returnToCharactersList.addEventListener('click', () => {
+    hideModals();
     charactersList.style.display = 'block';
 });
 
 const returnToBooksList = document.getElementById('return-btn-books');
-returnToBooksList.addEventListener('click', 
-function returnButtonBook(){
-    hideModals()
+returnToBooksList.addEventListener('click', () => {
+    hideModals();
     booksList.style.display = 'block';
 });
 
 const returnToSpellsList = document.getElementById('return-btn-spells');
-returnToSpellsList.addEventListener('click', 
-function returnButtonSpell(){
-    hideModals()
+returnToSpellsList.addEventListener('click', () => {
+    hideModals();
     spellsList.style.display = 'block';
 });
 
-const pageLogo = document.getElementById('page-logo');
-pageLogo.addEventListener('click',
-function returnToHomepage(){
-    hideModals()
+const returnToPageLogo = document.getElementById('page-logo');
+returnToPageLogo.addEventListener('click', () => {
+    hideModals();
     welcomeSection.style.display = 'block';
 });

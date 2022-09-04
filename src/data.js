@@ -20,10 +20,13 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
   const filteredCharacters = characters.filter((character) => {
     if (character.house === houseToFilterBy && character.house !== null) {
       return true;
+    } else {
+      return false;
     }
   })
-  return filteredCharacters.map((character) => character.name)
+  return filteredCharacters.map((character) => character.name);
 }
+
 function sortNames(charactersList, sortValue) {
   if (sortValue === 'asc') {
     return charactersNamesFromAtoZ(charactersList);
