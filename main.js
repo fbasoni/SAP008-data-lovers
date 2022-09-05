@@ -60,7 +60,7 @@ function displayCharactersByHouse(house) {
     const sortValue = document.getElementById('sort').value;
     charactersNames = mainFilters.sortNames(charactersNames, sortValue);
     let percentageOfCharsByHouse = mainFilters.calcPercentage(charactersNames.length, dataBaseCharacters.length);
-    document.getElementById('characters-percentage').innerHTML = `The characters in <em class="house-name">${house}</em> represent ${percentageOfCharsByHouse}% of all characters in the Harry Potter Books`
+    percentageResult.innerHTML = `The characters in <em class="house-name">${house}</em> represent ${percentageOfCharsByHouse}% of all characters in the Harry Potter Books`
     hideModals();
     charactersList.style.display = 'block';
     percentageResult.style.display = 'block';
@@ -112,7 +112,7 @@ btnSpells.addEventListener('click', () => {
 });
 
 function displayCharacterCard(listedCharacter) {
-    charactersList.style.display = 'none';
+    hideModals();
     characterCard.style.display = 'block';
     const cardContent = document.getElementById('card-content-characters');
     const cardTitle = document.getElementById('card-title-characters');
@@ -148,11 +148,11 @@ function displayCharacterCard(listedCharacter) {
     }) 
 }
     
-const charactersListItens = Array.from(document.getElementsByClassName('modal-characters-content')); 
-charactersListItens.forEach((characterName) => characterName.addEventListener('click', displayCharacterCard));
+const charactersListItems = Array.from(document.getElementsByClassName('modal-characters-content')); 
+charactersListItems.forEach((characterName) => characterName.addEventListener('click', displayCharacterCard));
 
 function displayBookCard(listedBook) {
-    booksList.style.display = 'none';
+    hideModals();
     bookCard.style.display = 'block';
     const cardContent = document.getElementById('card-content-books');
     const cardTitle = document.getElementById('card-title-books');
@@ -173,8 +173,8 @@ function displayBookCard(listedBook) {
     }); 
 }
     
-const booksListItens = Array.from(document.getElementsByClassName('modal-books-content')); 
-booksListItens.forEach((bookTitle) => bookTitle.addEventListener('click', displayBookCard));
+const booksListItems = Array.from(document.getElementsByClassName('modal-books-content')); 
+booksListItems.forEach((bookTitle) => bookTitle.addEventListener('click', displayBookCard));
 
 function displaySpellCard(listedSpell) {
     spellsList.style.display = 'none';
@@ -200,8 +200,8 @@ function displaySpellCard(listedSpell) {
     }); 
 }
 
-const spellsListItens = Array.from(document.getElementsByClassName('modal-spells-content')); 
-spellsListItens.forEach(spellName => spellName.addEventListener('click', displaySpellCard));
+const spellsListItems = Array.from(document.getElementsByClassName('modal-spells-content')); 
+spellsListItems.forEach(spellName => spellName.addEventListener('click', displaySpellCard));
 
 const returnToCharactersList = document.getElementById('return-btn-characters');
 returnToCharactersList.addEventListener('click', () => {
