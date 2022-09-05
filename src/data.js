@@ -1,17 +1,7 @@
 export const dataFunctions = {
   displayCharactersList, displayBooksList, displaySpellsList,
-  filterCharactersByHouses, sortNames, calcPercentage, createLists
+  filterCharactersByHouses, sortNames, calcPercentage
 };
-
-function createLists(obj, characters, books, spells){
-  if (obj === characters){
-    return characters.map(character => character.name);
-  } else if (obj === books){
-    return books.map(book => book.title);
-  } else if (obj === spells){
-    return spells.map(spell => spell.name);
-  }
-}
 
 function displayCharactersList(characters) {
   return characters.map((character) => character.name);

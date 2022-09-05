@@ -178,13 +178,11 @@ function displaySpellCard(listedSpell) {
         objectProperty.forEach(property => {
             if (spell[property] === null) spell[property] = 'Unknown'});
         cardTitle.innerHTML = `${spell.name}`
-        cardContent.innerHTML = 
-            `
+        cardContent.innerHTML = `
             <li class="card-line"><em class="card-content-heading">Pronunciation:</em> ${spell.pronunciation};</li>
             <li class="card-line"><em class="card-content-heading">Type:</em> ${spell.spell_type};</li>
             <li class="card-line"><em class="card-content-heading">Description:</em> ${spell.description};</li>
-            <li class="card-line"><em class="card-content-heading">Mention:</em> ${spell.mention}.</li>
-            ` 
+            <li class="card-line"><em class="card-content-heading">Mention:</em> ${spell.mention}.</li>` 
     }); 
 }
 
