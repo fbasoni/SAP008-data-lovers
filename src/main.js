@@ -1,4 +1,4 @@
-import { mainFilters } from './data.js';
+import { dataFunctions } from './data.js';
 import data from './data/harrypotter/data.js';
 
 const dataBaseCharacters = data.characters;
@@ -31,15 +31,15 @@ function hideModals() {
     percentageResult.style.display = 'none';
 }
 
-function formatList(objectsNames) {
+function formatList(listedObjects) {
     const ul = document.createElement('ul');
-    return ul.innerText = objectsNames.map((objectName) => `<li class="list-elements">${objectName}</li>`).join('');
+    return ul.innerText = listedObjects.map((object) => `<li class="list-elements">${object}</li>`).join('');
 }
 
 function displayCharactersList() {
     const sortValue = document.getElementById('sort').value;
-    charactersNames = mainFilters.displayCharactersList(dataBaseCharacters);
-    mainFilters.sortNames(charactersNames, sortValue);
+    charactersNames = dataFunctions.displayCharactersList(dataBaseCharacters);
+    dataFunctions.sortNames(charactersNames, sortValue);
     hideModals();
     charactersList.style.display = 'block';
     charactersListHeader.innerText = 'Characters list';
@@ -52,15 +52,15 @@ btnCharacters.addEventListener('click', displayCharactersList);
 const sortCharacters = document.getElementById('sort');
 sortCharacters.addEventListener('change', () => {
     const sortValue = document.getElementById('sort').value;
-    charactersNames = mainFilters.sortNames(charactersNames, sortValue);
+    charactersNames = dataFunctions.sortNames(charactersNames, sortValue);
     return charactersResult.innerHTML = formatList(charactersNames);
 });
 
 function displayCharactersByHouse(house) {
-    charactersNames = mainFilters.filterCharactersByHouses(dataBaseCharacters, house);
+    charactersNames = dataFunctions.filterCharactersByHouses(dataBaseCharacters, house);
     const sortValue = document.getElementById('sort').value;
-    charactersNames = mainFilters.sortNames(charactersNames, sortValue);
-    let percentageOfCharsByHouse = mainFilters.calcPercentage(charactersNames.length, dataBaseCharacters.length);
+    charactersNames = dataFunctions.sortNames(charactersNames, sortValue);
+    let percentageOfCharsByHouse = dataFunctions.calcPercentage(charactersNames.length, dataBaseCharacters.length);
     percentageResult.innerHTML = `The characters in <em class="house-name">${house}</em> represent ${percentageOfCharsByHouse}% of all characters in the Harry Potter Books`
     hideModals();
     charactersList.style.display = 'block';
@@ -98,7 +98,7 @@ btnRavenclaw.addEventListener('click', () => {
 
 const btnBooks = document.getElementById('btn-books');
 btnBooks.addEventListener('click', () => {
-    const bookTitles = mainFilters.displayBooksList(dataBaseBooks);
+    const bookTitles = dataFunctions.displayBooksList(dataBaseBooks);
     hideModals();
     booksList.style.display = 'block';
     return booksResult.innerHTML = formatList(bookTitles);
@@ -106,7 +106,7 @@ btnBooks.addEventListener('click', () => {
 
 const btnSpells = document.getElementById('btn-spells');
 btnSpells.addEventListener('click', () => {
-    const spellsNames = mainFilters.displaySpellsList(dataBaseSpells);
+    const spellsNames = dataFunctions.displaySpellsList(dataBaseSpells);
     hideModals();
     spellsList.style.display = 'block';
     return spellsResult.innerHTML = formatList(spellsNames);
