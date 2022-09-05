@@ -27,9 +27,9 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
 }
 
 function sortNames(charactersList, sortValue) {
-  if (sortValue === 'asc') {
+  if (sortValue == 'asc') {
     return charactersNamesFromAtoZ(charactersList);
-  } else if (sortValue === 'desc') {
+  } else if (sortValue == 'desc') {
     return charactersNamesFromZtoA(charactersList);
   } 
 }
