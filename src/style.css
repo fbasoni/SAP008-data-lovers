@@ -83,7 +83,7 @@ body {
 }
 
 .welcome-title {
-    font-size: 2.2rem;
+    font-size: 4.2em;
     font-weight: 150;
     font-family: "Harry Potter";
     color: #193833;
@@ -93,12 +93,12 @@ body {
 .welcome-description {
     margin-top: -0.8rem;
     margin-bottom: 2rem;
-    font-size: 1.5rem;
+    font-size: 2em;
 }
 
 .welcome-text {
     margin-bottom: 1.5rem;
-    font-size: 1rem;
+    font-size: 1.5em;
 }
 
 .footer {
@@ -117,7 +117,7 @@ body {
 .footer-link {
     font-family: "Harry Potter";
     font-weight: 100;
-    font-size: 1.4rem;
+    font-size: 1.7em;
     text-shadow: 3px 2px #1616162e;
     color: white;
     margin-block-start: 1.8rem;
@@ -126,7 +126,7 @@ body {
 .footer-copyright {
     color: #ad7d01;
     margin-top: 0.3rem;
-    font-size: 0.9rem;
+    font-size: 1.4em;
     font-weight: light;
     margin-block-start: 1.2rem;
 }
@@ -147,7 +147,7 @@ body {
 .modal-books-content,
 .modal-spells-content {
     overflow-y: scroll;
-    font-size: 1.1rem;
+    font-size: 1.8em;
     font-family: "Roboto";
     margin: 0 auto;
     margin-top: 0.6rem;
@@ -173,7 +173,7 @@ body {
     background: #DC9E00;
     text-align: center;
     font-family: "Harry Potter";
-    font-size: 1.5rem;
+    font-size: 3em;
     color: #193833;
 }
 
@@ -181,7 +181,7 @@ body {
     text-align: center;
     font-family: "Nunito";
     color: #F7F7F7;
-    font-size: 1rem;
+    font-size: 1.6em;
     margin-top: -0.5rem;
     margin-bottom: 1.1rem;
 }
@@ -200,7 +200,7 @@ body {
     border-radius: 20px;
     font-family: 'Harry Potter';
     font-weight: lighter;
-    font-size: 0.9rem;
+    font-size: 1.8em;
     text-align: center;
     text-shadow: 2px 1px #1616162e;
     background-color: #DC9F03;
@@ -213,7 +213,7 @@ body {
     text-align: center;
     font-family: "Nunito";
     color: #F7F7F7;
-    font-size: 1.1rem;
+    font-size: 1.8em;
     margin-bottom: 1.1rem;
     padding: 0.1rem;
     margin-inline: 2rem;
@@ -246,7 +246,7 @@ body {
     padding-top: 0.6rem;
     background-color:#DC9E00;
     font-family: 'Harry Potter';
-    font-size: 1.8rem;
+    font-size: 2.8em;
     font-weight: 200;
     color: #0b1c19;
     text-align: center;
@@ -254,7 +254,7 @@ body {
 
 .card-content {
     font-family: 'Roboto';
-    font-size: 1.2rem;
+    font-size: 2em;
     background-color: white;
     padding-left: 2rem;
     padding-block-start:2rem;
@@ -322,7 +322,7 @@ body {
         padding: 0.3rem 0.3rem;
         border-width: 1.5px;
         border-radius: 30px;
-        font-size: 0.8rem;
+        font-size: 1.5em;
     }
 
     .welcome {
@@ -356,7 +356,7 @@ body {
     .footer-link {
         margin-block-end: 0.9rem;
         color: white;
-        font-size: 1rem;
+        font-size: 1.2em;
     }
 
     .footer-copyright {
