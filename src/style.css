@@ -13,77 +13,78 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url('./Images/BGDesktop.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('./Images/HPBg.jpg');
+    background-size: auto;
+    background-repeat: repeat;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .header {
-    display: flex;
-    background-color: #700505;
+    background-color: #871f0c;
     height: 19vh;
     width: 100vw;
-    align-items: center;
-    justify-content: center;
     gap: 0.8rem;
     flex-wrap: wrap;
-    margin: auto;
 }
 
 .page-logo {
     cursor: pointer;
-    margin-top: 0.5rem;
+    margin-top: 0.1rem;
     margin-left: -4rem;
     margin-right: 25rem;
 }
 
 .menu-btns {
     text-align: center;
-    padding: 0.2rem;
-    margin-left: 0.3rem;
-    border-color: #DC9F03;
-    border-width: 3px;
+    padding: 0.6rem 1.5rem;
+    margin-left: 1.5rem;
     border-radius: 5px;
     font-family: 'Harry Potter';
     font-weight: lighter;
-    font-size: 1.3rem;
+    font-size: 2rem;
     text-align: center;
+    border: 7px;
+    box-shadow: 4px 3px rgba(54, 53, 53, 0.747);
     text-shadow: 2px 1px #1616162e;
-    background-color: #DC9F03;
+    background-color: #e3a302;
     color: #193833;
 }
 
-.menu-btns:hover,
-.search-icon:hover,
-.return-btn:hover,
-.modal-btn:hover {
+.menu-btns:hover, .return-btn:hover, .modal-btn:hover {
     cursor: pointer;
-    background-color: #0b1c19;
-    border-color: #0b1c19;
+    background-color: #212125f3;
     color: white;
-    text-shadow: 2px 1px #1616162e;
 }
 
 .main-container {
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
-    flex-wrap: wrap;
+}
+
+.golden-snitch {
+    margin-left: 43rem;
+    margin-top: -8rem;
+    margin-bottom: 2rem;
 }
 
 .welcome {
+    position: relative;
     text-align: center;
-    background-color: #dc9f03c9;
+    background-color: #f5e7d1;
     color: white;
     border-radius: 25px;
     padding: 0.10rem 1.2rem;
-    width: 60%;
+    width: 80%;
+    box-shadow: 6px 5px #1616162e;
 }
 
 .welcome-title {
-    font-size: 4.2em;
+    font-size: 5.2em;
     font-weight: 150;
     font-family: "Harry Potter";
     color: #193833;
@@ -91,30 +92,36 @@ body {
 }
 
 .welcome-description {
-    margin-top: -0.8rem;
+    background-color: #6d1e0627;
+    width: 65%;
+    margin: auto;
+    border-radius: 15px;
+    margin-top: -2rem;
+    padding: 0.5rem 0.8rem;
     margin-bottom: 2rem;
-    font-size: 2em;
+    font-size: 2.2em;
+    font-weight: lighter;
+    font-style: oblique;
+    color: #6d1e06;
 }
 
 .welcome-text {
-    margin-bottom: 1.5rem;
-    font-size: 1.5em;
+    width: 75%;
+    margin: auto;
+    color:#333535;
+    margin-bottom: 1.9rem;
+    font-size: 1.9em;
 }
 
 .footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #700505;
+    background-color: #871f0c;
     height: 3.1rem;
-    padding-bottom: 0.2rem;
+    padding-bottom: 1rem;
     min-width: 100%;
-    bottom: 0;
     gap: 0.5rem;
 }
 
-.footer-title,
-.footer-link {
+.footer-title, .footer-link {
     font-family: "Harry Potter";
     font-weight: 100;
     font-size: 1.7em;
@@ -124,7 +131,7 @@ body {
 }
 
 .footer-copyright {
-    color: #ad7d01;
+    color: #ffac1d;
     margin-top: 0.3rem;
     font-size: 1.4em;
     font-weight: light;
@@ -135,35 +142,38 @@ body {
     position: relative;
     width: 45rem;
     height: 30rem;
-    align-items: center;
-    background: rgba(95, 1, 1, 0.83);
+    margin-top: 0.1rem;
+    background: #802117;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
-    justify-content: center;
-    display: flex;
     border-radius: 5px;
 }
 
-.modal-characters-content,
-.modal-books-content,
-.modal-spells-content {
+.modal-characters-content, .modal-books-content, .modal-spells-content {
+    text-justify: center;
     overflow-y: scroll;
     font-size: 1.8em;
     font-family: "Roboto";
     margin: 0 auto;
     margin-top: 0.6rem;
+    margin-bottom: -0.4rem;
     padding: 0.5rem;
-    position: relative;
     border-radius: 5px;
     width: 40rem;
     height: 14rem;
     background: white;
-    z-index: 99999;
+    color: #0b1c19;
+}
+
+.list-elements {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
 }
 
 .list-elements:hover {
+    font-size: 1.5em;
+    color: rgb(131, 18, 3);
     cursor: pointer;
     text-decoration: underline;
-    color: rgb(45, 45, 238)
 }
 
 .modal-header {
@@ -174,6 +184,7 @@ body {
     text-align: center;
     font-family: "Harry Potter";
     font-size: 3em;
+    font-weight: 100;
     color: #193833;
 }
 
@@ -181,23 +192,29 @@ body {
     text-align: center;
     font-family: "Nunito";
     color: #F7F7F7;
-    font-size: 1.6em;
+    font-size: 1.8em;
     margin-top: -0.5rem;
     margin-bottom: 1.1rem;
 }
 
 .horizontal-center {
-    margin-left: 10.8rem;
+    margin-left: 12em;
     margin-top: -0.3rem;
+}
+.search-bar {
+    margin-left: 20em;
+    margin-top: 1rem;
+    margin-bottom: 0.5em;
+    border-radius: 6px;
+    padding: 0.2rem 1rem;
 }
 
 .modal-btn {
-    margin-left: 0.6rem;
-    padding: 0rem 0.4rem 0rem;
+    margin-left: 1.6rem;
+    padding: 0rem 0.2rem;
     margin-bottom: 0.2rem;
-    border-color: #DC9F03;
-    border-width: 3px;
-    border-radius: 20px;
+    border-width: 1px;
+    border-radius: 5px;
     font-family: 'Harry Potter';
     font-weight: lighter;
     font-size: 1.8em;
@@ -232,10 +249,10 @@ body {
 .modal-card {
     display: flex;
     margin: 0 auto;
-    background-color: rgba(95, 1, 1, 0.83);
+    background-color: #7e1d00fd;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
     padding-block-end: 4rem;
-    height: 26rem;
+    height: 24rem;
     width: 45rem;
     position: relative;
     border-radius: 5px;
@@ -246,8 +263,8 @@ body {
     padding-top: 0.6rem;
     background-color:#DC9E00;
     font-family: 'Harry Potter';
-    font-size: 2.8em;
-    font-weight: 200;
+    font-size: 3em;
+    font-weight: 300;
     color: #0b1c19;
     text-align: center;
 }
@@ -260,7 +277,7 @@ body {
     padding-block-start:2rem;
     margin-inline: 2rem;
     overflow-y: scroll;
-    height: 16rem;
+    height: 15rem;
 }
 
 .card-content-heading {
@@ -278,30 +295,21 @@ body {
 }
 
 .return-btn {
-    background-color: #0b1c19;
+    background-color: #191c1f;
     color: white;
     font-family: 'Harry Potter';
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 2em;
     text-align: center;
     border: 0px;
     border-radius: 13px;
-    padding: 0.5rem 0.9rem;
+    padding: 0.7rem 1rem;
     position: relative;
     margin-left: 20rem;
-    margin-top: 1.8rem;
+    margin-top: 1rem;
 }
 
-
-
 @media only screen and (max-width: 600px) {
-
-    body {
-        background-image: url('./Images/BGMobile.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
     .header {
         min-width: 100%;
         max-height: 25vh;
@@ -341,8 +349,7 @@ body {
         font-weight: 150;
     }
 
-    .welcome-description,
-    .welcome-text {
+    .welcome-description, .welcome-text {
         margin-block-start: 0.2rem;
         margin-block-end: 0.2rem;
         font-size: 0.85rem;
@@ -370,10 +377,7 @@ body {
         height: 23rem;
     }
 
-    .modal-characters-content,
-    .modal-books-content,
-    .modal-spells-content {
-        overflow-y: scroll;
+    .modal-characters-content, .modal-books-content, .modal-spells-content {
         font-size: 0.7rem;
         margin-top: 1.2rem;
         padding: 0.2rem;
@@ -391,7 +395,6 @@ body {
 
     .modal-text {
         text-align: center;
-        font-family: "Nunito";
         color: #F7F7F7;
         font-size: 0.7rem;
         margin-top: -0.2rem;
@@ -400,7 +403,7 @@ body {
 
     .horizontal-center {
         margin-top: 2rem;
-        margin-left: 1.7rem;
+        margin-left: 3.7rem;
         margin-bottom: -0.7rem;
     }
 
@@ -410,7 +413,6 @@ body {
         border-color: #DC9F03;
         border-width: 1px;
         border-radius: 5px;
-        font-family: 'Harry Potter';
         font-weight: lighter;
         font-size: 0.55rem;
         text-align: center;

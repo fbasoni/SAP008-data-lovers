@@ -212,3 +212,10 @@ returnToPageLogo.addEventListener('click', () => {
     hideModals();
     welcomeSection.style.display = 'block';
 });
+
+function displaySearchedCharacter(event){
+    const searchedCharacters = dataFunctions.searchCharacters(dataBaseCharacters, event.target.value);
+    return charactersResult.innerHTML = formatList(searchedCharacters)
+}
+const searchCharacters = document.getElementById('search');
+searchCharacters.addEventListener('keyup', displaySearchedCharacter);

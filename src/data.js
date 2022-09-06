@@ -1,6 +1,6 @@
 export const dataFunctions = {
   displayCharactersList, displayBooksList, displaySpellsList,
-  filterCharactersByHouses, sortNames, calcPercentage
+  filterCharactersByHouses, sortNames, calcPercentage, searchCharacters
 };
 
 function displayCharactersList(characters) {
@@ -44,4 +44,9 @@ function charactersNamesFromZtoA(names) {
 
 function calcPercentage(filteredCharactersLength, allCharactersLength) {
   return Math.round((filteredCharactersLength * 100) / allCharactersLength);
+}
+
+function searchCharacters (characters, eventTarget) {
+  const filterCharacters = characters.filter((character) => character.name.toLowerCase().includes(eventTarget.toLowerCase()))
+  return filterCharacters.map((character) => character.name);
 }
