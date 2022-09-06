@@ -13,23 +13,27 @@
 <script src="https://kit.fontawesome.com/5828f9f420.js" crossorigin="anonymous"></script>
 
 <body style="font-size:10px">
-  <header class="header">
-    <img src="Images/Logo.svg" id="page-logo" class="page-logo" width="270" height="130">
-    <button type="submit" id="btn-characters" class="menu-btns">Characters</button>
-    <button type="submit" id="btn-books" class="menu-btns">Books</button>
+  <header class="header flex-container">
+    <img src="Images/Logo.svg" id="page-logo" class="page-logo" width="320" height="170">
+    <nav>
+      <button type="submit" id="btn-characters" class="menu-btns">Characters</button>
+      <button type="submit" id="btn-books" class="menu-btns">Books</button>
     <button type="submit" id="btn-spells" class="menu-btns">Spells</button>
+    </nav>
   </header>
 
-  <main class="main-container">
+  <main class="main-container flex-container">
     <section id="welcome-section" class="welcome">
-      <h1 class="welcome-title">Welcome to Data Seeker!</h1>
+      <h1 class="welcome-title">Welcome to the Data Seeker!</h1>
+      <img src="Images/SnitchGif.gif" class="golden-snitch" width="100" height="95">
       <h2 class="welcome-description">
-        A reference catalogue on the universe of Harry Potter books
+        Seeking for information on the Harry Potter books saga? <br>
+        You've come to the right place!
       </h2>
-      <p class="welcome-text">Use the top menu to find information about characters, books and spells of the Harry Potter
-        world.</p>
+      <p class="welcome-text">Use the top menu to navigate the webpage and find a series of informations covering the topics characters, books and spells.</p>
     </section>
-    <section id="characters-list" class="modal-list" style="display:none">
+
+    <section id="characters-list" class="modal-list flex-container" style="display:none">
       <h1 class="modal-header" id="header-modal-characters">Characters list</h1>
       <p class="modal-text">Filter characters by houses. You may also sort the list alphabetically:
         <select class="sortBy" id="sort">
@@ -43,6 +47,7 @@
         <button type="submit" id="btn-hufflepuff" class="modal-btn">Hufflepuff</button>
         <button type="submit" id="btn-ravenclaw" class="modal-btn">Ravenclaw</button>
       </div>
+      <input type="text" id="search" class="search-bar" placeholder="Search for characters"/>
       <div id="characters-content" class="modal-characters-content">
       </div>
       <div id="characters-percentage" class="footer-modal">
@@ -78,7 +83,7 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer flex-container">
     <h1 class="footer-title"><a href="https://github.com/fbasoni/SAP008-data-lovers" class="footer-link">Data
         Seeeker</a></h1>
     <h2 class="footer-copyright">© 2022 </h2>
