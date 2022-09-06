@@ -326,7 +326,7 @@ body {
     }
 
     .menu-btns {
-        margin-block-start: 1rem;
+        margin-left: 1rem;
         padding: 0.3rem 0.3rem;
         border-width: 1.5px;
         border-radius: 30px;
@@ -334,10 +334,10 @@ body {
     }
 
     .welcome {
-        margin-block-start: 1.2rem;
+        margin-left: -13rem;
         color: white;
-        max-width: 70%;
-        max-height: 35%;
+        max-width: 30%;
+        min-height: 35%;
         padding: 0.5rem;
         border-radius: 15px;
     }
@@ -345,7 +345,7 @@ body {
     .welcome-title {
         margin-block-start: 0.2rem;
         margin-block-end: 0.3rem;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 150;
     }
 
@@ -353,6 +353,17 @@ body {
         margin-block-start: 0.2rem;
         margin-block-end: 0.2rem;
         font-size: 0.85rem;
+    }
+
+    .golden-snitch {
+        visibility: hidden;
+    }
+
+    .search-bar {
+        font-size: 1em;
+        margin-left: 5.5rem;
+        margin-bottom: -1rem;
+        padding: 0.1rem;
     }
 
     .footer {
@@ -370,7 +381,6 @@ body {
         color: #ad7d01;
         font-size: 0.7rem;
     }
-
     
     .modal-list {
         width: 19rem;
@@ -408,7 +418,7 @@ body {
     }
 
     .modal-btn {
-        margin-left: 0.8rem;
+        margin-left: 0.1rem;
         padding: 0.1rem;
         border-color: #DC9F03;
         border-width: 1px;
@@ -476,5 +486,11 @@ body {
         margin-right: 1rem;
         margin-bottom: 0.5rem;
     }
+
+    .flex-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
     
 }
