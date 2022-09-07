@@ -16,14 +16,14 @@
   <header class="header flex-container">
     <img src="Images/Logo.svg" id="page-logo" class="page-logo" width="320" height="170">
     <nav>
-      <button type="submit" id="btn-characters" class="menu-btns">Characters</button>
-      <button type="submit" id="btn-books" class="menu-btns">Books</button>
-    <button type="submit" id="btn-spells" class="menu-btns">Spells</button>
+      <button type="submit" id="btn-characters" data-characters="characters" class="menu-btns flex-item">Characters</button>
+      <button type="submit" id="btn-books" data-books="books" class="menu-btns flex-item">Books</button>
+      <button type="submit" id="btn-spells" data-spells="spells" class="menu-btns flex-item">Spells</button>
     </nav>
   </header>
 
   <main class="main-container flex-container">
-    <section id="welcome-section" class="welcome">
+    <section id="welcome-section" class="welcome flex-item">
       <h1 class="welcome-title">Welcome to the Data Seeker!</h1>
       <img src="Images/SnitchGif.gif" class="golden-snitch" width="100" height="95">
       <h2 class="welcome-description">
@@ -33,53 +33,38 @@
       <p class="welcome-text">Use the top menu buttons to navigate the website and find a series of informations covering the topics characters, books and spells.</p>
     </section>
 
-    <section id="characters-list" class="modal-list flex-container" style="display:none">
-      <h1 class="modal-header" id="header-modal-characters">Characters list</h1>
-      <p class="modal-text">Filter characters by houses. You may also sort the list alphabetically:
-        <select class="sortBy" id="sort">
-          <option value="asc">A - Z</option>
-          <option value="desc">Z - A</option>
-        </select>
-      </p>
-      <div class="horizontal-center">
-        <button type="submit" id="btn-gryffindor" class="modal-btn">Gryffindor</button>
-        <button type="submit" id="btn-slytherin" class="modal-btn">Slytherin</button>
-        <button type="submit" id="btn-hufflepuff" class="modal-btn">Hufflepuff</button>
-        <button type="submit" id="btn-ravenclaw" class="modal-btn">Ravenclaw</button>
+    <section id="list-modal" class="modal-list flex-container" style="display:none">
+      <h1 class="modal-header flex-item" id="modal-header">Characters list</h1>
+      <p id="list-text" class="modal-text flex-item">Click a listed item to display its card.</p>
+      <p id="house-btn-info" class="house-text">Choose a house below to display a list of its belonging characters:</p>
+      <div class="horizontal-center" id="house-btns-div">
+        <button type="submit" id="houses-btns" data-house="Gryffindor" class="house-btn flex-item">Gryffindor</button>
+        <button type="submit" id="btn-slytherin" data-house="Slytherin" class="house-btn flex-item">Slytherin</button>
+        <button type="submit" id="btn-hufflepuff" data-house="Hufflepuff" class="house-btn flex-item">Hufflepuff</button>
+        <button type="submit" id="btn-ravenclaw" data-house="Ravenclaw" class="house-btn flex-item">Ravenclaw</button>
       </div>
-      <input type="text" id="search" class="search-bar" placeholder="Search for characters"/>
-      <div id="characters-content" class="modal-characters-content">
+      <input type="text" id="search-characters" data-search="character" class="search-bar" placeholder="Search..."/>
+      <input type="text" id="search-spells" data-search="spells" class="search-bar" placeholder="Search..."/>
+      <select class="sort" id="sort" data-sort="characters">
+        <option value="asc">A - Z</option>
+        <option value="desc">Z - A</option>
+      </select>
+      <select class="sort" id="sort-two" data-sort="spells">
+        <option value="asc">A - Z</option>
+        <option value="desc">Z - A</option>
+      </select>
+      <div id="lists-content" class="lists-content">
       </div>
-      <div id="characters-percentage" class="footer-modal">
+      <div id="characters-percentage" class="footer-modal flex-item">
       </div>
     </section>
-
-    <section id="books-list" class="modal-list" style="display:none">
-      <h1 class="modal-header">Books list</h1>
-      <div id="books-content" class="modal-books-content"></div>
-    </section>
-
-    <section id="spells-list" class="modal-list" style="display:none">
-      <h1 class="modal-header">Spells list</h1>
-      <div id="spells-content" class="modal-spells-content"></div>
-    </section>
-
-    <section id="card-info-characters" class="modal-card" style="display:none">
-      <h1 id="card-title-characters" class="card-title"></h1>
-      <div id="card-content-characters" class="card-content"></div>
-      <button type="submit" id="return-btn-characters" class="return-btn">Return</button>
-    </section>
-
-    <section id="card-info-books" class="modal-card" style="display:none">
-      <h1 id="card-title-books" class="card-title"></h1>
-      <div id="card-content-books" class="card-content"></div>
-      <button type="submit" id="return-btn-books" class="return-btn">Return</button>
-    </section>
-
-    <section id="card-info-spells" class="modal-card" style="display:none">
-      <h1 id="card-title-spells" class="card-title"></h1>
-      <div id="card-content-spells" class="card-content"></div>
-      <button type="submit" id="return-btn-spells" class="return-btn">Return</button>
+  
+    <section id="card-modal" class="modal-card" style="display:none">
+      <h1 id="card-title" class="card-title flex-item"></h1>
+      <div id="card-content" class="card-content"></div>
+      <button type="submit" id="return-btn-one" data-return="characters" class="return-btn">Return</button>
+      <button type="submit" id="return-btn-two" data-return="books" class="return-btn">Return</button>
+      <button type="submit" id="return-btn-three" data-return="spells" class="return-btn">Return</button>
     </section>
   </main>
 
