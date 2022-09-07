@@ -17,11 +17,6 @@ const sortInputOne = document.getElementById('sort');
 const housesInfo = document.getElementById('house-btn-info');
 const searchCharacters = document.getElementById('search-characters');
 const searchSpells = document.getElementById('search-spells');
-const returnToCharactersList = document.getElementById('return-btn-one');
-const returnToBooksList = document.getElementById('return-btn-two');
-const returnToSpellsList = document.getElementById('return-btn-three');
-
-
 let objectsNames;
 
 function hideModals() {
@@ -35,9 +30,6 @@ function hideModals() {
     percentageResult.style.display = 'none';
     searchCharacters.style.display = 'none';
     searchSpells.style.display = 'none';
-    returnToCharactersList.style.display = 'none';
-    returnToBooksList.style.display = 'none';
-    returnToSpellsList.style.display = 'none';
 }
 
 function formatList(listedObjects) {
@@ -46,7 +38,7 @@ function formatList(listedObjects) {
 }
 
 function displayCharactersList() {
-    objectsNames = dataFunctions.createLists(dataBaseCharacters, 'name');
+    const charactersNames = dataFunctions.createLists(dataBaseCharacters, 'name');
     hideModals();
     listModal.style.display = 'block';
     sortInputOne.style.display = 'block';
@@ -54,7 +46,7 @@ function displayCharactersList() {
     housesInfo.style.display = 'block';
     searchCharacters.style.display = 'block';
     percentageResult.style.display = 'block';
-    return listResult.innerHTML = formatList(objectsNames);
+    return listResult.innerHTML = formatList(charactersNames);
 }
 function displayBooksList(){
     const booksTitles = dataFunctions.createLists(dataBaseBooks, 'title');
@@ -74,12 +66,15 @@ function displaySpellsList(){
 const menuBtns = Array.from(document.getElementsByClassName('menu-btns'));
 menuBtns.forEach(button => button.addEventListener('click', () => {
     if (button.dataset.characters === 'characters'){
-        displayCharactersList()
+        hideModals();
+        displayCharactersList();
         listModalHeader.innerText = 'Characters List';
     } else if (button.dataset.books === 'books'){
+        hideModals();
         displayBooksList(); 
         listModalHeader.innerText = 'Books list';
     } else if (button.dataset.spells === 'spells'){
+        hideModals();
         displaySpellsList(); 
         listModalHeader.innerText = 'Spells list';
     }
@@ -136,7 +131,6 @@ houseBtns.forEach(button => button.addEventListener('click', () => {
 function displayCharacterCard(listedCharacter) {
     hideModals();
     cardModal.style.display = 'block';
-    returnToCharactersList.style.display = 'block';
     const cardContent = document.getElementById('card-content');
     const cardTitle = document.getElementById('card-title');
     const clickedName = listedCharacter.target.innerText;
@@ -166,7 +160,6 @@ charactersListItems.forEach((characterName) => characterName.addEventListener('c
 function displayBookCard(listedBook) {
     hideModals();
     cardModal.style.display = 'block';
-    returnToBooksList.style.display = 'block';
     const cardContent = document.getElementById('card-content');
     const cardTitle = document.getElementById('card-title');
     const clickedTitle = listedBook.target.innerText;
@@ -189,7 +182,6 @@ booksListItems.forEach((bookTitle) => bookTitle.addEventListener('click', displa
 function displaySpellCard(listedSpell) {
     hideModals();
     cardModal.style.display = 'block';
-    returnToSpellsList.style.display = 'block';
     const cardContent = document.getElementById('card-content');
     const cardTitle = document.getElementById('card-title');
     const clickedSpell = listedSpell.target.innerText;
@@ -209,17 +201,6 @@ function displaySpellCard(listedSpell) {
 }
 const spellsListItems = Array.from(document.getElementsByClassName('lists-content')); 
 spellsListItems.forEach(spellName => spellName.addEventListener('click', displaySpellCard));
-
-// const returnBtns = Array.from(document.getElementsByClassName('return-btn'));
-// returnBtns.forEach(button => button.addEventListener('click', () => {
-//     if (button.dataset.return === 'characters'){
-//         displayCharactersList();
-//     } else if (button.dataset.return === 'books'){
-//         displayBooksList();
-//     } else if (button.dataset.return === 'spells'){
-//         displaySpellsList(); 
-//     }
-// }));
 
 const returnToPageLogo = document.getElementById('page-logo');
 returnToPageLogo.addEventListener('click', () => {
