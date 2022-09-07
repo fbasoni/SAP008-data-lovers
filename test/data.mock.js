@@ -47,4 +47,12 @@ export const charactersData = [{
     "spell_type": "Hex"
   }]
   
-  export const listToSort = ['C', 'B', 'A', 1]
+  export const sortedData = [{
+    "name": "Wingardium Leviosa",
+  },
+  {
+    "name": "Accio",
+  },
+  {
+    "name": "Luna Lovegood"
+  }]

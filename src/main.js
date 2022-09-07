@@ -45,7 +45,6 @@ function displayCharactersList() {
     houseBtnsDiv.style.display = 'block';
     housesInfo.style.display = 'block';
     searchCharacters.style.display = 'block';
-    percentageResult.style.display = 'block';
     return listResult.innerHTML = formatList(charactersNames);
 }
 function displayBooksList(){
@@ -94,7 +93,7 @@ sortInputs.forEach(input => input.addEventListener('change', () => {
 }));
 
 function displayCharactersByHouse(house) {
-    objectsNames = dataFunctions.filterCharactersByHouses(dataBaseCharacters, house);
+    objectsNames = dataFunctions.filterCharactersByHouses(dataBaseCharacters, 'house', house);
     let charactersPercentage = dataFunctions.calcPercentage(objectsNames.length, dataBaseCharacters.length);
     percentageResult.innerHTML = `The characters in <em class="house-name">${house}</em> represent ${charactersPercentage}% of all characters in the books`
     hideModals();
