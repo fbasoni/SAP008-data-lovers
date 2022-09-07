@@ -14,25 +14,18 @@ function filterCharactersByHouses(characters, key, houseBtn) {
 }
 
 function sortLists(objects, key, inputValue){
+  const sortAtoZ = objects.sort((a, b) => {
+    if(a[key] > b[key]) {
+      return 1;
+    } else if (a[key] < b[key]) {
+      return -1;
+    } 
+  });
   if(inputValue == 'asc') {
-    return objects.sort((a, b) => {
-      if(a[key] > b[key]) {
-        return 1;
-      } else if (a[key] < b[key]) {
-        return -1;
-      }
-    });
+    return sortAtoZ
+  } else if (inputValue == 'desc') {
+    return sortAtoZ.reverse();
   }
-  if (inputValue == 'desc') {
-    return objects.sort((a, b) => {
-      if(a[key] < b[key]){
-        return 1;
-      } else if (a[key] > b[key]) {
-        return -1;
-      }
-    });
-  }
-  
 }
 
 function calcPercentage(filteredCharactersLength, allCharactersLength) {

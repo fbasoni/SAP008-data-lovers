@@ -108,21 +108,17 @@ function displayCharactersByHouse(house) {
 
 const houseBtns = Array.from(document.getElementsByClassName('house-btn'));
 houseBtns.forEach(button => button.addEventListener('click', () => {
-    const houseGryffindor = 'Gryffindor';
-    const houseSlytherin = 'Slytherin';
-    const houseHufflepuff = 'Hufflepuff';
-    const houseRavenclaw = 'Ravenclaw';
     if (button.dataset.house === 'Gryffindor'){
-        displayCharactersByHouse(houseGryffindor);
+        displayCharactersByHouse('Gryffindor');
         listModalHeader.innerText = 'Characters from house Gryffindor';
     } else if (button.dataset.house === 'Slytherin'){
-        displayCharactersByHouse(houseSlytherin); 
+        displayCharactersByHouse('Slytherin'); 
         listModalHeader.innerText = 'Characters from house Slytherin';
     } else if (button.dataset.house === 'Hufflepuff'){
-        displayCharactersByHouse(houseHufflepuff);
+        displayCharactersByHouse('Hufflepuff');
         listModalHeader.innerText = 'Characters from house Hufflepuff';
     } else if (button.dataset.house === 'Ravenclaw'){
-        displayCharactersByHouse(houseRavenclaw);
+        displayCharactersByHouse('Ravenclaw');
         listModalHeader.innerText = 'Characters from house Ravenclaw';
     }
 }));
