@@ -1,118 +1,102 @@
-import { mainFilters } from '../src/data.js'
-import { charactersData, booksData, spellsData, listToSort } from '../test/data.mock.js'
+import { dataFunctions } from '../src/data.js'
+import { charactersData, booksData, spellsData, sortedData } from '../test/data.mock.js'
 
-describe('mainFilters', () => {
+describe('dataFunctions', () => {
   it('should be an object', () => {
-    expect(typeof mainFilters).toBe('object');
+    expect(typeof dataFunctions).toBe('object');
   });
 
 });
 
-describe('mainFilters.displayCharactersList', () => {
+describe('dataFunctions.createLists', () => {
 
   it('should be a function', () => {
-    expect(typeof mainFilters.displayCharactersList).toBe('function');
+    expect(typeof dataFunctions.createLists).toBe('function');
   });
 
   it('should return 08 characters', () => {
-    expect(mainFilters.displayCharactersList(charactersData).length).toBe(8)
-  })
+    expect(dataFunctions.createLists(charactersData, 'name').length).toBe(8)
+  });
 
   it('should return Bellatrix Lestrange', () => {
-    expect(mainFilters.displayCharactersList(charactersData).includes('Bellatrix Lestrange')).toBe(true)
-  })
-
-});
-
-describe('mainFilters.displayBooksList', () => {
-
-  it('should be a function', () => {
-    expect(typeof mainFilters.displayBooksList).toBe('function');
+    expect(dataFunctions.createLists(charactersData, 'name').includes('Bellatrix Lestrange')).toBe(true)
   });
 
   it('should return 2 books', () => {
-    expect(mainFilters.displayBooksList(booksData).length).toBe(2)
-  })
+    expect(dataFunctions.createLists(booksData, 'name').length).toBe(2)
+  });
 
   it('should return Harry Potter and the Prisoner of Azkaban', () => {
-    expect(mainFilters.displayBooksList(booksData).includes('Harry Potter and the Prisoner of Azkaban')).toBe(true)
-  })
-
-});
-
-describe('mainFilters.displaySpellsList', () => {
-
-  it('should be a function', () => {
-    expect(typeof mainFilters.displaySpellsList).toBe('function');
+    expect(dataFunctions.createLists(booksData, 'title').includes('Harry Potter and the Prisoner of Azkaban')).toBe(true)
   });
 
   it('should return 2 spells', () => {
-    expect(mainFilters.displaySpellsList(spellsData).length).toBe(2)
-  })
+    expect(dataFunctions.createLists(spellsData, 'name').length).toBe(2)
+  });
 
   it('should return Wingardium Leviosa', () => {
-    expect(mainFilters.displaySpellsList(spellsData).includes('Wingardium Leviosa')).toBe(true)
-  })
+    expect(dataFunctions.createLists(spellsData, 'name').includes('Wingardium Leviosa')).toBe(true)
+  });
 
 });
 
-describe('mainFilters.filterCharactersByHouses', () => {
+describe('dataFunctions.filterCharactersByHouses', () => {
   it('should be a function', () => {
-    expect(typeof mainFilters.filterCharactersByHouses).toBe('function')
+    expect(typeof dataFunctions.filterCharactersByHouses).toBe('function')
   });
 
   it('should return Albus Dumbledore, Sirius Black and Harry Potter from house Gryffindor', () => {
-    const gryffindorCharacters = mainFilters.filterCharactersByHouses(charactersData, 'Gryffindor')
+    const gryffindorCharacters = dataFunctions.filterCharactersByHouses(charactersData, 'house', 'Gryffindor')
     expect(gryffindorCharacters[0]).toEqual('Albus Dumbledore')
     expect(gryffindorCharacters[1]).toEqual('Sirius Black')
     expect(gryffindorCharacters[2]).toEqual('Harry Potter')
   });
 
   it('should return Severus Snape and Albus Potter from house Slytherin', () => {
-    const slytherinCharacters = mainFilters.filterCharactersByHouses(charactersData, 'Slytherin')
+    const slytherinCharacters = dataFunctions.filterCharactersByHouses(charactersData, 'house', 'Slytherin')
     expect(slytherinCharacters[0]).toEqual('Severus Snape')
     expect(slytherinCharacters[1]).toEqual('Albus Potter')
   });
 
   it('should return Luna Lovegood from house Ravenclaw', () => {
-    const ravenclawCharacters = mainFilters.filterCharactersByHouses(charactersData, 'Ravenclaw')
+    const ravenclawCharacters = dataFunctions.filterCharactersByHouses(charactersData, 'house', 'Ravenclaw')
     expect(ravenclawCharacters[0]).toEqual('Luna Lovegood')
   });
 
   it('should return Cedric Diggory from house Hufflepuff', () => {
-    const hufflepuffCharacters = mainFilters.filterCharactersByHouses(charactersData, 'Hufflepuff')
+    const hufflepuffCharacters = dataFunctions.filterCharactersByHouses(charactersData, 'house', 'Hufflepuff')
     expect(hufflepuffCharacters[0]).toEqual('Cedric Diggory')
   });
 
   it('should return 03 characters from house Gryffindor', () => {
-    const gryffindorCharacters = mainFilters.filterCharactersByHouses(charactersData, 'Gryffindor')
+    const gryffindorCharacters = dataFunctions.filterCharactersByHouses(charactersData, 'house', 'Gryffindor')
     expect(gryffindorCharacters.length).toBe(3)
   });
 
   it('should return 02 characters from house Slytherin', () => {
-    const slytherinCharacters = mainFilters.filterCharactersByHouses(charactersData, 'Slytherin')
+    const slytherinCharacters = dataFunctions.filterCharactersByHouses(charactersData, 'house', 'Slytherin')
     expect(slytherinCharacters.length).toBe(2)
   });
 });
 
-describe('mainFilters.sortNames', () => {
+describe('dataFunctions.sortLists', () => {
   it('should be a function', () => {
-    expect(typeof mainFilters.sortNames).toBe('function')
+    expect(typeof dataFunctions.sortLists).toBe('function')
   });
-  it('should return sorted from A to Z', () => {
-    expect(mainFilters.sortNames(listToSort, 'asc')).toStrictEqual([1, 'A', 'B', 'C'])
+  it('should return array sorted from A to Z', () => {
+    expect(dataFunctions.sortLists(sortedData, 'name', 'asc')).toEqual([sortedData[0], sortedData[1], sortedData[2]])
   });
-  it('should return sorted from Z to A', () => {
-    expect(mainFilters.sortNames(listToSort, 'desc')).toStrictEqual(['C', 'B', 'A', 1])
+  it('should return array sorted from Z to A', () => {
+    expect(dataFunctions.sortLists(sortedData, 'name', 'asc')).toEqual([sortedData[2], sortedData[1], sortedData[0]])
   });
 });
 
-describe('mainFilters.calcPercentage', () => {
+describe('dataFunctions.calcPercentage', () => {
   it('should be a function', () => {
-    expect(typeof mainFilters.calcPercentage).toBe('function')
+    expect(typeof dataFunctions.calcPercentage).toBe('function')
   });
   
   it ('should return 30%', () => {
-    expect(mainFilters.calcPercentage(30, 100)).toBe(30)
+    expect(dataFunctions.calcPercentage(30, 100)).toBe(30)
   });
 });
