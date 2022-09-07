@@ -84,19 +84,29 @@ describe('dataFunctions.sortLists', () => {
     expect(typeof dataFunctions.sortLists).toBe('function')
   });
   it('should return array sorted from A to Z', () => {
-    expect(dataFunctions.sortLists(sortedData, 'name', 'asc')).toEqual([sortedData[0], sortedData[1], sortedData[2]])
+    expect(dataFunctions.sortLists(sortedData, 'name', 'asc')).toEqual([sortedData[0], sortedData[1]])
   });
   it('should return array sorted from Z to A', () => {
-    expect(dataFunctions.sortLists(sortedData, 'name', 'asc')).toEqual([sortedData[2], sortedData[1], sortedData[0]])
+    expect(dataFunctions.sortLists(sortedData, 'name', 'desc')).toEqual([sortedData[1], sortedData[0]])
   });
 });
 
 describe('dataFunctions.calcPercentage', () => {
   it('should be a function', () => {
-    expect(typeof dataFunctions.calcPercentage).toBe('function')
+    expect(typeof dataFunctions.calcPercentage).toBe('function');
   });
   
   it ('should return 30%', () => {
-    expect(dataFunctions.calcPercentage(30, 100)).toBe(30)
+    expect(dataFunctions.calcPercentage(30, 100)).toBe(30);
+  });
+});
+
+describe('dataFunctions.searchListedObject', () => {
+  it('should be a function', () => {
+    expect(typeof dataFunctions.searchListedObject).toBe('function');
+  });
+  
+  it ('should return Harry Potter', () => {
+    expect(dataFunctions.searchListedObject(charactersData, 'name', 'Harry Potter')).toBeTruthy();
   });
 });

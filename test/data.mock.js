@@ -48,11 +48,8 @@ export const charactersData = [{
   }]
   
   export const sortedData = [{
-    "name": "Wingardium Leviosa",
-  },
-  {
-    "name": "Accio",
-  },
-  {
     "name": "Luna Lovegood"
+  },
+  {
+    "name": "Accio"
   }]
