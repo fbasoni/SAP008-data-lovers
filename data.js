@@ -4,13 +4,11 @@ function createLists(objects, key) {
   return objects.map((object) => object[key]);
 }
 
-function filterCharactersByHouses(characters, houseToFilterBy) {
+function filterCharactersByHouses(characters, key, houseBtn) {
   const filteredCharacters = characters.filter((character) => {
-    if (character.house === houseToFilterBy && character.house !== null) {
+    if (character[key] === houseBtn && character[key] !== null) {
       return true;
-    } else {
-      return false;
-    }
+    } 
   })
   return filteredCharacters.map((character) => character.name);
 }
@@ -22,9 +20,7 @@ function sortLists(objects, key, inputValue){
         return 1;
       } else if (a[key] < b[key]) {
         return -1;
-      } else {
-        return 0;
-      } 
+      }
     });
   }
   if (inputValue == 'desc') {
@@ -33,9 +29,7 @@ function sortLists(objects, key, inputValue){
         return 1;
       } else if (a[key] > b[key]) {
         return -1;
-      } else {
-        return 0;
-      } 
+      }
     });
   }
   
