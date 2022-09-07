@@ -18,10 +18,19 @@ body {
     background-repeat: repeat;
 }
 
+.hide {
+    display: none;
+}
+
 .flex-container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.flex-item {
+    text-align: center;
+
 }
 
 .header {
@@ -40,14 +49,12 @@ body {
 }
 
 .menu-btns {
-    text-align: center;
     padding: 0.6rem 1.5rem;
     margin-left: 1.5rem;
     border-radius: 5px;
     font-family: 'Harry Potter';
     font-weight: lighter;
     font-size: 2rem;
-    text-align: center;
     border: 7px;
     box-shadow: 4px 3px rgba(54, 53, 53, 0.747);
     text-shadow: 2px 1px #1616162e;
@@ -55,7 +62,7 @@ body {
     color: #193833;
 }
 
-.menu-btns:hover, .return-btn:hover, .modal-btn:hover {
+.menu-btns:hover, .house-btn:hover {
     cursor: pointer;
     background-color: #212125f3;
     color: white;
@@ -74,7 +81,6 @@ body {
 
 .welcome {
     position: relative;
-    text-align: center;
     background-color: #f5e7d1;
     color: white;
     border-radius: 25px;
@@ -141,27 +147,27 @@ body {
 .modal-list {
     position: relative;
     width: 45rem;
-    height: 30rem;
+    height: 26rem;
     margin-top: 0.1rem;
     background: #802117;
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 }
 
-.modal-characters-content, .modal-books-content, .modal-spells-content {
+.lists-content {
     text-justify: center;
     overflow-y: scroll;
     font-size: 1.8em;
     font-family: "Roboto";
     margin: 0 auto;
-    margin-top: 0.6rem;
+    margin-top: 1.2rem;
     margin-bottom: -0.4rem;
     padding: 0.5rem;
     border-radius: 5px;
     width: 40rem;
-    height: 14rem;
+    max-height: 11rem;
     background: white;
-    color: #0b1c19;
+    color: #001eff;
 }
 
 .list-elements {
@@ -181,44 +187,55 @@ body {
     position: relative;
     margin-top: 0.8rem;
     background: #DC9E00;
-    text-align: center;
     font-family: "Harry Potter";
-    font-size: 3em;
+    font-size: 2.2em;
     font-weight: 100;
     color: #193833;
 }
 
+.sort {
+    margin-left: 27.5rem;
+    margin-top: -2.1rem;
+    opacity: 85%;
+}
+
 .modal-text {
-    text-align: center;
     font-family: "Nunito";
     color: #F7F7F7;
-    font-size: 1.8em;
+    font-size: 1.5em;
     margin-top: -0.5rem;
     margin-bottom: 1.1rem;
 }
 
+.house-text {
+    color: #F7F7F7;
+    font-size: 1.5em;
+    margin-left: 10rem;
+    margin-top: -0.5rem;
+}
+
 .horizontal-center {
-    margin-left: 12em;
+    margin-left: 16.5em;
     margin-top: -0.3rem;
 }
+
 .search-bar {
-    margin-left: 20em;
-    margin-top: 1rem;
-    margin-bottom: 0.5em;
+    margin-left: 14.5rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
     border-radius: 6px;
     padding: 0.2rem 1rem;
 }
 
-.modal-btn {
-    margin-left: 1.6rem;
-    padding: 0rem 0.2rem;
+.house-btn {
+    margin-left: 1.5rem;
+    padding: 0rem 0.1rem;
     margin-bottom: 0.2rem;
     border-width: 1px;
     border-radius: 5px;
     font-family: 'Harry Potter';
     font-weight: lighter;
-    font-size: 1.8em;
-    text-align: center;
+    font-size: 1.4em;
     text-shadow: 2px 1px #1616162e;
     background-color: #DC9F03;
     color: #193833;
@@ -227,23 +244,22 @@ body {
 .footer-modal {
     position: relative;
     margin-top: 2rem;
-    text-align: center;
     font-family: "Nunito";
     color: #F7F7F7;
     font-size: 1.8em;
     margin-bottom: 1.1rem;
     padding: 0.1rem;
     margin-inline: 2rem;
+    background: #802117;
+    box-shadow: 5px #0b1c19;
+    border-radius: 5px;
+    padding-bottom: 0.6rem;
 }
 
 .house-name {
     font-weight: bold;
     color: #DC9E00;
     font-style: italic;
-}
-
-.sortBy {
-    border-radius: 0.40rem;
 }
 
 .modal-card {
@@ -266,7 +282,6 @@ body {
     font-size: 3em;
     font-weight: 300;
     color: #0b1c19;
-    text-align: center;
 }
 
 .card-content {
@@ -294,19 +309,138 @@ body {
     margin-right: 1.8rem;
 }
 
-.return-btn {
-    background-color: #191c1f;
-    color: white;
-    font-family: 'Harry Potter';
-    cursor: pointer;
-    font-size: 2em;
-    text-align: center;
-    border: 0px;
-    border-radius: 13px;
-    padding: 0.7rem 1rem;
-    position: relative;
-    margin-left: 20rem;
-    margin-top: 1rem;
+@media screen and (min-width: 1920px){
+    .header {
+        height: 22vh;
+    }
+    
+    .menu-btns {
+        padding: 1.5rem 2.9rem;
+        font-size: 5em;
+    }
+
+    .golden-snitch {
+        margin-left: 43rem;
+        margin-top: -8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .welcome {
+        padding: 2rem 3rem;
+        width: 66rem;
+        height: 30rem;
+    }
+    
+    .welcome-title {
+        font-size: 8.2em;
+    }
+    
+    .welcome-description {
+        padding: 2rem 2rem;
+        margin-bottom: 4rem;
+        font-size: 2.7em;
+    }
+    
+    .welcome-text {
+        margin-bottom: 1.9rem;
+        font-size: 2.2em;
+    }
+    
+    .footer-title, .footer-link {
+        font-size: 1.9em;
+    }
+    
+    .modal-list {
+        width: 65rem;
+        height: 46rem;
+    }
+    
+    .lists-content {
+        margin-top: 2rem;
+        font-size: 2.3em;
+        width: 50rem;
+        min-height: 20rem;
+    }
+    
+    .modal-header {
+        margin-top: 1rem;
+        font-size: 4.2em;
+    }
+    
+    .modal-text {
+        font-size: 1.88em;
+        margin-top: -0.5rem;
+        margin-bottom: 1.4rem;
+        text-align: center;
+    }
+    
+    .house-text {
+        text-align: center;
+        font-size: 1.88em;
+        margin-left: -1rem;
+    }
+    
+    .horizontal-center {
+        margin-left: 18.5em;
+        margin-top: -0.3rem;
+    }
+    
+    .sort {
+        margin-left: 37.5rem;
+        margin-top: -2.58rem;
+        opacity: 85%;
+        font-size: 2em;
+    }
+
+    .search-bar {
+        margin-left: 21.5rem;
+        margin-top: 1rem;
+        padding: 0.3rem 1.5rem;
+        font-size: 1.5em;
+    }
+    
+    .house-btn {
+        padding: 0.4rem 2rem;
+        margin-bottom: 0.4rem;
+        font-size: 2.2em;
+    }
+    
+    .footer-modal {
+        margin-top: 3.5rem;
+        font-size: 2.3em;
+    }
+    
+    .house-name {
+        font-weight: bold;
+        color: #DC9E00;
+        font-style: italic;
+    }
+    
+    .modal-card {
+        height: 40rem;
+        width: 55rem;
+    }
+    
+    .card-title {
+        margin-top: 0.8rem;
+        font-size: 6em;
+    }
+    
+    .card-content {
+        font-family: 'Roboto';
+        font-size: 2.3em;
+        height: 23rem;
+        border-radius: 5px;
+    }
+    
+    .card-content-heading {
+        font-size: 1.2em;
+    }
+    
+    .card-line {
+        margin-bottom: 2rem;
+    }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -404,7 +538,6 @@ body {
     }
 
     .modal-text {
-        text-align: center;
         color: #F7F7F7;
         font-size: 0.7rem;
         margin-top: -0.2rem;
@@ -417,7 +550,7 @@ body {
         margin-bottom: -0.7rem;
     }
 
-    .modal-btn {
+    .house-btn {
         margin-left: 0.1rem;
         padding: 0.1rem;
         border-color: #DC9F03;
@@ -425,13 +558,12 @@ body {
         border-radius: 5px;
         font-weight: lighter;
         font-size: 0.55rem;
-        text-align: center;
         text-shadow: 2px 1px #1616162e;
         background-color: #DC9F03;
         color: #193833;
     }
 
-    .sortBy {
+    .sort {
         border-radius: 0.4rem;
         padding: -0.5rem;
         font-size: 0.5rem;
@@ -461,15 +593,6 @@ body {
     
     .card-content-heading {
         font-size: 0.8rem;
-    }
-    
-    .return-btn {
-        font-size: 0.8rem;
-        border-radius: 5px;
-        padding: 0.1rem 0.1rem;
-        position: relative;
-        margin-left: 7.8rem;
-        margin-top: 1rem;
     }
 
     .footer-modal {

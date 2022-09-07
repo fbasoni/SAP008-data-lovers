@@ -1,18 +1,7 @@
-export const dataFunctions = {
-  displayCharactersList, displayBooksList, displaySpellsList,
-  filterCharactersByHouses, sortNames, calcPercentage, searchCharacters
-};
+export const dataFunctions = {createLists, filterCharactersByHouses, sortLists, calcPercentage, searchListedObject};
 
-function displayCharactersList(characters) {
-  return characters.map((character) => character.name);
-}
-
-function displayBooksList(books) {
-  return books.map((book) => book.title);
-}
-
-function displaySpellsList(spells) {
-  return spells.map((spell) => spell.name);
+function createLists(objects, key) {
+  return objects.map((object) => object[key]);
 }
 
 function filterCharactersByHouses(characters, houseToFilterBy) {
@@ -26,27 +15,37 @@ function filterCharactersByHouses(characters, houseToFilterBy) {
   return filteredCharacters.map((character) => character.name);
 }
 
-function sortNames(charactersList, sortValue) {
-  if (sortValue == 'asc') {
-    return charactersNamesFromAtoZ(charactersList);
-  } else if (sortValue == 'desc') {
-    return charactersNamesFromZtoA(charactersList);
-  } 
-}
-
-function charactersNamesFromAtoZ(names) {
-  return names.sort();
-}
-
-function charactersNamesFromZtoA(names) {
-  return names.sort().reverse();
+function sortLists(objects, key, inputValue){
+  if(inputValue == 'asc') {
+    return objects.sort((a, b) => {
+      if(a[key] > b[key]) {
+        return 1;
+      } else if (a[key] < b[key]) {
+        return -1;
+      } else {
+        return 0;
+      } 
+    });
+  }
+  if (inputValue == 'desc') {
+    return objects.sort((a, b) => {
+      if(a[key] < b[key]){
+        return 1;
+      } else if (a[key] > b[key]) {
+        return -1;
+      } else {
+        return 0;
+      } 
+    });
+  }
+  
 }
 
 function calcPercentage(filteredCharactersLength, allCharactersLength) {
   return Math.round((filteredCharactersLength * 100) / allCharactersLength);
 }
 
-function searchCharacters (characters, eventTarget) {
-  const filterCharacters = characters.filter((character) => character.name.toLowerCase().includes(eventTarget.toLowerCase()))
-  return filterCharacters.map((character) => character.name);
+function searchListedObject (objects, key, eventTarget) {
+  const filterObjects = objects.filter((object) => object[key].toLowerCase().includes(eventTarget.toLowerCase()))
+  return filterObjects.map((object) => object[key]);
 }
